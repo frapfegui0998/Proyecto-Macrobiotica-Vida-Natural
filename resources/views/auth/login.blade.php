@@ -68,7 +68,7 @@
         width: 86%;
         display: inline-block;
         padding: 10px 20px; /* Ajusta el espaciado según tus necesidades */
-        background-color: rgba(255, 255, 255, 0); /* Relleno blanco */
+        background-color: white; /* Relleno blanco */
         border: 2px solid green; /* Borde verde */
         color: green; /* Color del texto */
         text-decoration: none; /* Quita la subraya por defecto de los enlaces */
