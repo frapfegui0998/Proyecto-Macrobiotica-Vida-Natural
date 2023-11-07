@@ -4,8 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\IndexController;
-use App\Http\Controllers\Admin\PermissionController;
-use App\Http\Controllers\Admin\RoleController;
+
+use App\Http\Controllers\Admin\ConfigurationController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductsController;
 
@@ -34,15 +34,15 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('index');
     //Roles
-    Route::resource('/roles', RoleController::class);
+    Route::resource('/roles', ConfigurationController::class);
     //
-    Route::post('/roles/{role}/permissions', [RoleController::class, 'givePermission'])->name('roles.permissions');
-    Route::delete('/roles/{role}/permissions/{permission}', [RoleController::class, 'revokePermission'])->name('roles.permissions.revoke');
+    Route::post('/roles/{role}/permissions', [ConfigurationController::class, 'givePermission'])->name('roles.permissions');
+    Route::delete('/roles/{role}/permissions/{permission}', [ConfigurationController::class, 'revokePermission'])->name('roles.permissions.revoke');
     //Permissions
-    Route::resource('/permissions', PermissionController::class);
+    Route::resource('/permissions', ConfigurationController::class);
     //
-    Route::post('/permissions/{permission}/roles', [PermissionController::class, 'assignRole'])->name('permissions.roles');
-    Route::delete('/permissions/{permission}/roles/{role}', [PermissionController::class, 'removeRole'])->name('permissions.roles.remove');
+    Route::post('/permissions/{permission}/roles', [ConfigurationController::class, 'assignRole'])->name('permissions.roles');
+    Route::delete('/permissions/{permission}/roles/{role}', [ConfigurationController::class, 'removeRole'])->name('permissions.roles.remove');
     //Users
     Route::resource('/users', UserController::class);
     Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
@@ -53,6 +53,8 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::delete('/users/{user}/permissions/{permission}', [UserController::class, 'revokePermission'])->name('users.permissions.revoke');
     //Products
     Route::resource('/products', ProductsController::class);
+    // configurate 
+    Route::resource('/configurate', ConfigurationController::class);
 
 
 });

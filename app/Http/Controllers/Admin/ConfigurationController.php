@@ -7,17 +7,18 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class RoleController extends Controller
+class ConfigurationController extends Controller
 {
     public function index()
     {
         $roles = Role::all();
-        return view('admin.roles.index', compact('roles'));
+        $permissions = Permission::all();
+        return view('admin.permissions.index', compact('roles', 'permissions'));
     }
 
     public function create()
     {
-        return view('admin.roles.create');
+        return view('admin.permissions.create');
     }
 
     public function store(Request $request)
@@ -25,13 +26,13 @@ class RoleController extends Controller
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         Role::create($validated);
 
-        return to_route('admin.roles.index')->with('message', 'Role Created successfully.');
+        return redirect()->route('admin.permissions.index')->with('message', 'Role Created successfully.');
     }
 
     public function edit(Role $role)
     {
         $permissions = Permission::all();
-        return view('admin.roles.edit', compact('role', 'permissions'));
+        return view('admin.permissions.edit', compact('role', 'permissions'));
     }
 
     public function update(Request $request, Role $role)
@@ -39,14 +40,14 @@ class RoleController extends Controller
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         $role->update($validated);
 
-        return to_route('admin.roles.index')->with('message', 'Rol actualizado correctamente.');
+        return redirect()->route('admin.permissions.index')->with('message', 'Rol actualizado correctamente.');
     }
 
     public function destroy(Role $role)
     {
         $role->delete();
 
-        return back()->with('message', 'Role deleted.');
+        return redirect()->route('admin.permissions.index')->with('message', 'Role deleted.');
     }
 
     public function givePermission(Request $request, Role $role)
