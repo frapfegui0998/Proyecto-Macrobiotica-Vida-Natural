@@ -36,10 +36,11 @@
         <a class="menu-item {{ request()->is('admin/users*') ? 'bg-blue-200' : 'bg-transparent' }}" href="{{ route('admin.users.index') }}">
             <i class="fas fa-users" style="margin-right: 8px;"></i> Usuarios
         </a>
-        
+        <a class="menu-item {{ request()->is('admin/roles*') ? 'bg-blue-200' : 'bg-transparent' }}" href="{{ route('admin.roles.index') }}">
+            <i class="fas fa-user-tag" style="margin-right: 8px;"></i> Roles
         </a>
         <a class="menu-item {{ request()->is('admin/permissions*') ? 'bg-blue-200' : 'bg-transparent' }}" href="{{ route('admin.permissions.index') }}">
-            <i class="fas fa-key" style="margin-right: 8px;"></i> Configuracion
+            <i class="fas fa-key" style="margin-right: 8px;"></i> Permisos
         </a>
         <a class="menu-item {{ request()->is('admin/products*') ? 'bg-blue-200' : 'bg-transparent' }}" href="{{ route('admin.products.index') }}">
             <i class="fas fa-box-open" style="margin-right: 8px;"></i> Productos

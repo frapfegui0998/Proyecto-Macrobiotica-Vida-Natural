@@ -5,16 +5,16 @@
         <!-- Author: FormBold Team -->
         <!-- Learn More: https://formbold.com -->
         <div class="mx-auto w-full max-w-[550px]">
-            <form action="{{ route('admin.permissions.store') }}" method="POST">
+            <form action="{{ route('admin.roles.store') }}" method="POST">
                 @csrf
                 <div class="-mx-3 flex flex-wrap py-5">
                     <div class="w-full px-3 sm:w-1/2">
                         <div class="mb-5">
                             <label for="name" class="py-2 mb-3 block text-base font-medium text-[#07074D]">
-                                Nombre del Permiso
+                                Nombre del Rol
                             </label>
-                            <input type="text" name="name" id="name" placeholder="Permiso"
-                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-4 px-8 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                            <input type="text" name="name" id="name" placeholder="Rol"
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
                         @error('name')
                             <span class="text-red-400 text-sm">{{ $message }}</span>

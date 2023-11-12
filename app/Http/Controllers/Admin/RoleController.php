@@ -7,18 +7,17 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class ConfigurationController extends Controller
+class RoleController extends Controller
 {
     public function index()
     {
         $roles = Role::all();
-        $permissions = Permission::all();
-        return view('admin.permissions.index', compact('roles', 'permissions'));
+        return view('admin.roles.index', compact('roles'));
     }
 
     public function create()
     {
-        return view('admin.permissions.create');
+        return view('admin.roles.create');
     }
 
     public function store(Request $request)
@@ -26,13 +25,13 @@ class ConfigurationController extends Controller
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         Role::create($validated);
 
-        return redirect()->route('admin.permissions.index')->with('message', 'Role Created successfully.');
+        return to_route('admin.roles.index')->with('message', 'Role Created successfully.');
     }
 
     public function edit(Role $role)
     {
         $permissions = Permission::all();
-        return view('admin.permissions.edit', compact('role', 'permissions'));
+        return view('admin.roles.edit', compact('role', 'permissions'));
     }
 
     public function update(Request $request, Role $role)
@@ -40,14 +39,14 @@ class ConfigurationController extends Controller
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         $role->update($validated);
 
-        return redirect()->route('admin.permissions.index')->with('message', 'Rol actualizado correctamente.');
+        return to_route('admin.roles.index')->with('message', 'Rol actualizado correctamente.');
     }
 
     public function destroy(Role $role)
     {
         $role->delete();
 
-        return redirect()->route('admin.permissions.index')->with('message', 'Role deleted.');
+        return back()->with('message', 'Role deleted.');
     }
 
     public function givePermission(Request $request, Role $role)
