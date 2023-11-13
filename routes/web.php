@@ -22,6 +22,11 @@ use App\Http\Controllers\Admin\ProductsController;
 */
 
 Route::get('/', function () {
+    return view('paginaPrincipal');
+});
+
+
+Route::get('/login', function () {
     return view('auth/login');
 });
 
