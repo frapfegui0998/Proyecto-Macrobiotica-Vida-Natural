@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="{{asset('fontawesome-free-6.4.2-web/css/all.min.css')}}">
+
+
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="margin-right: 20px;">MACROBIÓTICA VIDA NATURAL </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" style="margin-right: 10px;">
+                    <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Inicio</a>
+                </li>
+                <li class="nav-item" style="margin-right: 10px;">
+                    <a class="nav-link" href="{{ url('/Contactanos') }}">Contáctanos</a>
+                </li>
+                <li class="nav-item" style="margin-right: 10px;">
+                    <a class="nav-link" href="{{ url('/Acerca') }}">Acerca de Nosotros</a>
+                </li>
+            </ul>
+
+            <a href="{{ url('/login') }}" style="margin-right: 20px;">
+                    <i class="fas fa-user-tag" style="margin-right: 8px;"></i>Login
+            </a>
+
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscar Producto" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Buscar</button>
+            </form>
+
+
+      </div>
+    </div>
+  </nav>
