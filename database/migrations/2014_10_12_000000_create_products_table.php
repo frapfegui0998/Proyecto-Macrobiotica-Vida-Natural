@@ -12,17 +12,23 @@ return new class extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id(); 
-            $table->string('name'); 
+            $table->id();
+            $table->string('name');
             $table->text('description')->nullable();
-            $table->decimal('price', 8, 2); 
-            $table->timestamps(); 
+            $table->decimal('price', 10, 2);
+            $table->integer('stock_quantity');
+            $table->string('image_url')->nullable(); // Nueva columna para la URL de la imagen
+            $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('products');
     }
-       
 };

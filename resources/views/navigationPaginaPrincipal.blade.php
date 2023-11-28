@@ -30,7 +30,7 @@
         </button>
     </div>
     <nav :class="{ 'block': open, 'hidden': !open }" class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto" style="background-color: #f0f2f5;">
-        <a href="{{ url('/search') }}" class="menu-item bg-blue-200">
+        <a href="{{ url('/productos') }}" class="menu-item bg-blue-200">
             <i class="fa fa-search" style="margin-right: 8px;"></i>Buscar Productos
         </a>
     

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductsController;
+use App\Http\Controllers\User\ProductController;
 
 
 /*
@@ -68,5 +69,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+//Buscar Productos
+Route::get('/productos', [ProductController::class, 'index'])->name('user.index');
 
 require __DIR__.'/auth.php';

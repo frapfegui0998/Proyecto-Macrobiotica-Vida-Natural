@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Macrobiótica Vida Natural</title>
     <link rel="stylesheet" href="{{ asset('fontawesome-free-6.4.2-web/css/all.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,8 +24,10 @@
 
         .owl-carousel {
             width: 80%;
-            margin: auto; /* Para centrar el carousel */
-            border: 15px solid #ffff; /* Agrega un contorno blanco alrededor */
+            margin: auto;
+            /* Para centrar el carousel */
+            border: 15px solid #ffff;
+            /* Agrega un contorno blanco alrededor */
         }
 
         .carousel-img {
@@ -32,7 +36,8 @@
             display: block;
         }
 
-        .owl-prev, .owl-next {
+        .owl-prev,
+        .owl-next {
             font-size: 24px;
             color: #fff;
             background: #000;
@@ -51,11 +56,12 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <body>
     <nav class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             <div class="flex-col md:flex md:flex-row md:min-h-screen">
-                @include('layouts.navigationPaginaPrincipal')
+                @include('navigationPaginaPrincipal')
             </div>
         </div>
     </nav>
@@ -70,24 +76,25 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             $('.owl-carousel').owlCarousel({
-                loop:true,
-                margin:10,
-                nav:true, // Muestra las flechas de navegación
-                responsive:{
-                    0:{
-                        items:1
+                loop: true,
+                margin: 10,
+                nav: true, // Muestra las flechas de navegación
+                responsive: {
+                    0: {
+                        items: 1
                     },
-                    600:{
-                        items:3
+                    600: {
+                        items: 3
                     },
-                    1000:{
-                        items:4
+                    1000: {
+                        items: 4
                     }
                 }
             });
         });
     </script>
 </body>
+
 </html>
