@@ -22,15 +22,22 @@ use App\Http\Controllers\User\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('paginaPrincipal');
+Route::get('/Contactanos', function () {
+    return view('paginaContactanos');
 });
 
+Route::get('/Acerca', function () {
+    return view('paginaAcerca');
+});
 
 Route::get('/login', function () {
     return view('auth/login');
 });
 
+
+Route::get('/', function () {
+    return view('paginaPrincipal');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
