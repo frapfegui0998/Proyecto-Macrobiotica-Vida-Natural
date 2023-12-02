@@ -22,11 +22,11 @@ use App\Http\Controllers\User\ProductController;
 |
 */
 
-Route::get('/Contactanos', function () {
+Route::get('/contacto', function () {
     return view('paginaContactanos');
 });
 
-Route::get('/Acerca', function () {
+Route::get('/acerca', function () {
     return view('paginaAcerca');
 });
 
