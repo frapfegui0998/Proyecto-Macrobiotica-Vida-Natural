@@ -45,7 +45,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">MACROBIÓTICA VIDA NATURAL</a>
+        <a class="navbar-brand" href="/">MACROBIÓTICA VIDA NATURAL</a>
       </div>
       <div class="navbar-collapse collapse">
         <form class="navbar-form navbar-right" role="search">
@@ -61,7 +61,7 @@
   <div class="navbar navbar-default">
     <div class="container">
       <ul class="nav navbar-nav">
-          <li class="active"><a href="{{ url('/') }}">Inicio</a></li>
+          <li><a href="{{ url('/') }}">Inicio</a></li>
           <li><a href="{{ url('/contacto') }}">Contáctanos</a></li>
           <li><a href="{{ url('/acerca') }}">Acerca de Nosotros</a></li>
       </ul>
@@ -71,14 +71,9 @@
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script>
-    $(document).ready(function() {
-        var url = window.location.pathname;
-        $('.navbar-nav > li > a[href="' + url + '"]').addClass('active');
-    });
-  </script>
+
+
 
 </body>
 

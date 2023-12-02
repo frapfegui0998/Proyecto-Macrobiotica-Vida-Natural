@@ -33,11 +33,7 @@
 </header>
 
 <body>
-    <div class="container mt-4">
-        <div class="carousel-container px-3 px-md-4">
-            @include('layouts.carousel')
-        </div>
-    </div>
+
 
 </body>
 
