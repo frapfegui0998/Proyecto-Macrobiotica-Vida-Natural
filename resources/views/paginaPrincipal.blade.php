@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('{{ asset('images/macrobiotica.jpeg') }}');
+            background-image: url('{{ asset('images/macrobiotica.jpg') }}');
             background-size: cover;
             background-position: center center;
             margin: 0;
@@ -20,20 +20,19 @@
         }
 
         .carousel-container {
-            max-width: 70%; 
-            margin: 90px auto 20px;
+            max-width: 50%; 
+
         }
 
     </style>
 
 </head>    
 
-
 <header class="font-sans antialiased">
     @include('layouts.navigationPaginaPrincipal')
 </header>
-<body>
 
+<body>
     <div class="container mt-4">
         <div class="carousel-container px-3 px-md-4">
             @include('layouts.carousel')
