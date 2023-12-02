@@ -25,7 +25,7 @@
 
     /* Cambiar el color activo de los indicadores */
     .carousel-indicators .active {
-      background-color: #fff; /* Cambiar el color de fondo del indicador activo */
+      background-color: #337ab7; /* Cambiar el color de fondo del indicador activo */
       border-color: #337ab7; /* Cambiar el color del borde del indicador activo */
     }
   </style>
