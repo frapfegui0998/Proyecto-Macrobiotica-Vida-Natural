@@ -1,39 +1,71 @@
-<link rel="stylesheet" href="{{asset('css/bootstap.min.css')}}">
-<link href="{{asset('css/carousel.css')}}" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+  <style>
+    /* Estilos para las imágenes dentro del carousel */
+    .carousel-inner .item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
 
+    /* Cambiar el color de los indicadores con transparencia */
+    .carousel-indicators li {
+      background-color: rgba(51, 122, 183, 0.1); /* Color con transparencia */
+      border-color: rgba(51, 122, 183, 0.5); /* Borde con transparencia */
+    }
 
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 4"></button>
+    /* Cambiar el color activo de los indicadores */
+    .carousel-indicators .active {
+      background-color: #fff; /* Cambiar el color de fondo del indicador activo */
+      border-color: #337ab7; /* Cambiar el color del borde del indicador activo */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="images/Producto2.jpg" alt="Producto1" style="width:40%;">
+        </div>
+
+        <div class="item">
+          <img src="images/Producto3.jpg" alt="Producto2" style="width:40%;">
+        </div>
+      
+        <div class="item">
+          <img src="images/Producto4.jpg" alt="Producto3" style="width:40%;">
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{{ asset('images/Producto1.jpg') }}" class="d-block w-75" alt="Producto1">
-    </div>
-    <div class="carousel-item">
-      <img src="{{ asset('images/Producto2.jpg') }}" class="d-block w-75" alt="Producto2">
-    </div>
-    <div class="carousel-item">
-      <img src="{{ asset('images/Producto3.jpg') }}" class="d-block w-75" alt="Producto3">
-    </div>
-    <div class="carousel-item">
-      <img src="{{ asset('images/Producto4.jpg') }}" class="d-block w-75" alt="Producto4">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-<script src= "{{asset('js/popper.min.js')}}"></script>
-<script src= "{{asset('js/bootstrap.min.js')}}">const carousel = new bootstrap.Carousel('#myCarousel')</script>
-
+</body>
+</html>
