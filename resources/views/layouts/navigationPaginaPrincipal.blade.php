@@ -68,6 +68,7 @@
           <li><a href="{{ url('/') }}">Inicio</a></li>
           <li><a href="{{ url('/contacto') }}">Contáctanos</a></li>
           <li><a href="{{ url('/acerca') }}">Acerca de Nosotros</a></li>
+          <li><a href="{{ url('/productos') }}">Productos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
        <li><a href="{{ url('/login') }}"><i class="fas fa-user"></i> <span style="margin-right: 15px;">Login</span></a></li>
@@ -76,6 +77,5 @@
   </div>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
 
 </html>

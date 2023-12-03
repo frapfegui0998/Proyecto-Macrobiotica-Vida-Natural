@@ -2,39 +2,67 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
+use App\Models\Product;
 
-class UserSeeder extends Seeder
+class ProductsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
     {
-        User::create([
-            'name' => 'admin',
-            'email' => 'admin@a.com',
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        ])->assignRole('admin');
-        //Asignar varios roles
-        //->assignRole('admin', 'profesor');
+        // Limpiar la tabla antes de agregar datos
+        Product::truncate();
 
-        User::create([
-            'name' => 'profesor',
-            'email' => 'profesor@p.com',
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        ])->assignRole('profesor');
+        // Agregar datos de ejemplo
+        Product::create([
+            'name' => 'Producto 1',
+            'description' => 'Descripción del Producto',
+            'price' => 19.99,
+            'stock_quantity' => 50,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
 
-        User::create([
-            'name' => 'estudiante',
-            'email' => 'estudiante@e.com',
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        ])->assignRole('estudiante');
+        Product::create([
+            'name' => 'Producto 2',
+            'description' => 'Descripción del Producto',
+            'price' => 29.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 3',
+            'description' => 'Descripción del Producto',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 4',
+            'description' => 'Descripción del Producto',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 5',
+            'description' => 'Descripción del Producto',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
     }
 }

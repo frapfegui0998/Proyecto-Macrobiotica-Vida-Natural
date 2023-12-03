@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
             $table->integer('stock_quantity');
-            $table->string('image_url')->nullable(); // Nueva columna para la URL de la imagen
+            $table->string('image_url')->nullable(); 
             $table->timestamps();
         });
     }
