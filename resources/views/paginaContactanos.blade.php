@@ -18,12 +18,6 @@
             padding: 0;
             min-height: 100vh;
         }
-
-        .carousel-container {
-            max-width: 50%; 
-
-        }
-
     </style>
 
 </head>    
@@ -33,7 +27,9 @@
 </header>
 
 <body>
-
+    <div class="container mt-2">
+            @include('layouts.contacto-form')
+    </div>
 
 </body>
 

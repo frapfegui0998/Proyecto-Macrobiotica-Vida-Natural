@@ -28,11 +28,15 @@
       background-color: #337ab7; /* Cambiar el color de fondo del indicador activo */
       border-color: #337ab7; /* Cambiar el color del borde del indicador activo */
     }
+
+    .container-carousel{
+        background-color: rgba(242, 242, 242, 0.8);
+    }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-carousel">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">

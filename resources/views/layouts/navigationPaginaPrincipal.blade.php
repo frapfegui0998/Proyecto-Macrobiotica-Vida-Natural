@@ -28,6 +28,11 @@
       margin-right: 20px; /* Añade un margen a la derecha de la marca */
     }
 
+    .btn{
+      color: gray;
+      margin-right: 20px; /* Añade un margen a la derecha de la marca */
+    }
+
     /* Quitar el margin-bottom del navbar */
     .navbar.bg-primary {
       margin-bottom: 0;
@@ -41,11 +46,10 @@
   </style>
 </head>
 
-<body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">MACROBIÓTICA VIDA NATURAL</a>
+        <a class="navbar-brand" href="/">Macrobiótica Vida Natural</a>
       </div>
       <div class="navbar-collapse collapse">
         <form class="navbar-form navbar-right" role="search">
@@ -66,15 +70,12 @@
           <li><a href="{{ url('/acerca') }}">Acerca de Nosotros</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-       <li><a href="{{ url('/login') }}"><i class="fas fa-user"></i> <span style="margin-left: 5px;">Login</span></a></li>
+       <li><a href="{{ url('/login') }}"><i class="fas fa-user"></i> <span style="margin-right: 15px;">Login</span></a></li>
       </ul>
     </div>
   </div>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
-
-</body>
 
 </html>

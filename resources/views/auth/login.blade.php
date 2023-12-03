@@ -18,7 +18,7 @@
         background-color: rgba(255, 255, 255, 0.7);
         border-radius: 8px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        padding: 20px;
+        padding: 45px;
         width: 300px;
         text-align: left;
         }
@@ -53,9 +53,9 @@
         border-radius: 4px;
         cursor: pointer;
         width: 100%;
-        margin-top: 10px;
+        margin-top: 20px;
         /* Espacio superior */
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         /* Espacio inferior */
         font-size: 15px;
         }

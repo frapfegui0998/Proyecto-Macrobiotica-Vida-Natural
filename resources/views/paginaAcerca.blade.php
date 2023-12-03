@@ -19,11 +19,6 @@
             min-height: 100vh;
         }
 
-        .carousel-container {
-            max-width: 50%; 
-
-        }
-
     </style>
 
 </head>    
@@ -33,8 +28,8 @@
 </header>
 
 <body>
-
-
+    @include('layouts.acerca-de')
 </body>
+
 
 </html>

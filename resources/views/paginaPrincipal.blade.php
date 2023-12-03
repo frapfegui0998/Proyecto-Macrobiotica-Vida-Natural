@@ -20,8 +20,8 @@
         }
 
         .carousel-container {
-            max-width: 50%; 
-
+            max-width: 100%; 
+            margin-top: 80px;
         }
 
     </style>
