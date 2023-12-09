@@ -15,3 +15,5 @@ class ProductController extends Controller
         return view('user.index', compact('products'));
     }
 }
+
+

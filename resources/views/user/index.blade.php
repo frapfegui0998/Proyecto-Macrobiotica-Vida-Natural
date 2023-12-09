@@ -21,6 +21,19 @@
             margin-top: 1rem;
         }
 
+        .card-title,
+        .card-text {
+            color: white;
+            /* Cambia el color del texto a blanco */
+            font-size: 14px;
+            /* Ajusta el tamaño de la fuente según tus preferencias */
+        }
+
+        .card {
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-image: url('{{ asset('images/macrobiotica.jpg') }}');
@@ -42,14 +55,14 @@
     @include('layouts.navigationPaginaPrincipal')
 </header>
 
-<div class="container">  
+<div class="container">
     <div class="productos">
         @foreach ($products as $product)
             <div class="card">
                 <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->name }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $product->name }}</h5>
-                    <p class="card-text">{{ $product->description }}</p>
+                    <h5 class="card-title text-white">{{ $product->name }}</h5>
+                    <p class="card-text text-white">{{ $product->description }}</p>
                     <a href="#" class="btn btn-primary">Ver detalles</a>
                 </div>
             </div>

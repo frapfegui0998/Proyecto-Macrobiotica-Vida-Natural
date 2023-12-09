@@ -64,5 +64,159 @@ class ProductsSeeder extends Seeder
             'stock_quantity' => 30,
             'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
         ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Descripción del Producto 2',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Sensibio H2o',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Sensibio H2o',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Sensibio H2o.',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Sensibio H2o',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        Product::create([
+            'name' => 'Producto 6',
+            'description' => 'Sensibio H2o',
+            'price' => 32.99,
+            'stock_quantity' => 30,
+            'image_url' => 'https://images-eu.ssl-images-amazon.com/images/I/51DR03lkSRL._AC_UL160_SR160,160_.jpg',
+        ]);
+
+        
     }
 }

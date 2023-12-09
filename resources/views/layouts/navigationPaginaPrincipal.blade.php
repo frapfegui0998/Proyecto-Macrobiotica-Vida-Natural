@@ -64,14 +64,6 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="/">Macrobiótica Vida Natural</a>
       </div>
-      <div class="navbar-collapse collapse">
-        <form class="navbar-form navbar-right" role="search">
-          <div class="form-group">
-            <input class="form-control" type="search" placeholder="Buscar Producto" aria-label="Buscar Producto">
-          </div>
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
-      </div>
     </div>
   </nav>
 
