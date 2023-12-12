@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <style>
             body {
-                background-color: #1e6c38;
+                background-color: #4267B2;
             }
 
             .container {
@@ -34,10 +34,6 @@
             }
 
             .btn-primary:hover {
-                background-color: #4f4f4f;
-            }
-
-            .btn-primary {
                 background-color: #4f4f4f;
             }
         </style>

@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <style>
             body {
-                background-color: #1e6c38;
+                background-color: #4267B2;
             }
 
             .container {
@@ -21,20 +21,25 @@
 
             .form-group input {
                 width: 100%;
-                padding: 15px; /* Increase padding for larger size */
-                font-size: 24px; /* Increase font size for larger text */
+                padding: 15px;
+                /* Increase padding for larger size */
+                font-size: 24px;
+                /* Increase font size for larger text */
             }
 
             .btn-primary {
                 background-color: #4267B2;
                 border: none;
-                padding: 15px 30px; /* Increase padding for larger button */
-                font-size: 24px; /* Increase font size for larger text */
+                padding: 15px 30px;
+                /* Increase padding for larger button */
+                font-size: 24px;
+                /* Increase font size for larger text */
                 color: #fff;
             }
 
             .btn-primary:hover {
-                background-color: #155d30; /* Darker green on hover */
+                background-color: #4f4f4f;
+                /* Darker green on hover */
             }
         </style>
     </head>
