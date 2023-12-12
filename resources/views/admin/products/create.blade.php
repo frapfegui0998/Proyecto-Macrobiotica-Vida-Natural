@@ -26,7 +26,7 @@
             }
 
             .btn-primary {
-                background-color: #1e6c38;
+                background-color: #4267B2;
                 border: none;
                 padding: 15px 30px;
                 font-size: 24px;
@@ -34,7 +34,11 @@
             }
 
             .btn-primary:hover {
-                background-color: #155d30;
+                background-color: #4f4f4f;
+            }
+
+            .btn-primary {
+                background-color: #4f4f4f;
             }
         </style>
     </head>

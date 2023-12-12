@@ -15,7 +15,7 @@
         }
 
         .card {
-            margin-left: 2rem;
+            margin-left: 3rem;
             margin-top: 1rem;
         }
 

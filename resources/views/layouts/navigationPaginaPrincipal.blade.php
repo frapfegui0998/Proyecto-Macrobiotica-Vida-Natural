@@ -89,13 +89,11 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <li>
-                        <button type="submit" class="btn btn-primary" style="margin-right: 15px;"><i class="fa fa-sign-out"></i></button>
+                      <i class="fas fa-sign-out-alt"></i> <span style="margin-right: 15px;"></span></a></li>
                 </form>
             @else
-                <li><a href="{{ url('/login') }}"><i class="fas fa-user"></i> <span
-                            style="margin-right: 15px;">Login</span></a></li>
+                <li><a href="{{ url('/login') }}"><i class="fas fa-user"></i> <span style="margin-right: 15px;">Login</span></a></li>
             @endauth
-            
         </ul>
     </div>
 </div>
