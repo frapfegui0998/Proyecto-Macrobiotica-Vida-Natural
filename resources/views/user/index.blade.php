@@ -29,7 +29,7 @@
 
 
         .btn.btn-primary {
-        color: white;
+            color: white;
         }
 
         body {
@@ -43,16 +43,10 @@
         }
 
         .login-container {
-        background-color: rgba(255, 255, 255, 0.7);
-        border-radius: 8px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        margin-top: 35px;
-        margin-left: 105px;
-        margin-right: 85px;
-        padding-left: 45px;
-        width: 1350px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         }
-
     </style>
 </head>
 
@@ -60,21 +54,21 @@
     @include('layouts.navigationPaginaPrincipal')
 </header>
 
-    <div class="login-container">
-        <div class="productos">
-            @foreach ($products as $product)
-                <div class="card">
-                    {{-- <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->name }}"> --}}
-                    <img width="150px" height="150px" src="{{ asset($product->image_url) }}" class="card-img-top"
-                        alt="{{ $product->name }}">
-                    <div class="card-body">
-                        <h5 class="card-title" style="color: #4f4f4f; font-weight: bold;">{{ $product->name }}</h5>
-                        <p class="card-text" style="color: #4f4f4f; font-weight: bold;">{{ $product->description }}</p>
-                        <a href="{{ url('/contacto') }}" class="btn btn-primary">Consulte vía contáctanos</a>
-                    </div>
+<div class="login-container container mx-auto">
+    <div class="productos mx-auto">
+        @foreach ($products as $product)
+            <div class="card">
+                {{-- <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->name }}"> --}}
+                <img width="150px" height="150px" src="{{ asset($product->image_url) }}" class="card-img-top"
+                    alt="{{ $product->name }}">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #4f4f4f; font-weight: bold;">{{ $product->name }}</h5>
+                    <p class="card-text" style="color: #4f4f4f; font-weight: bold;">{{ $product->description }}</p>
+                    <a href="{{ url('/contacto') }}" class="btn btn-primary">Consulte "Contáctanos"</a>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     </div>
+</div>
 
 </html>
