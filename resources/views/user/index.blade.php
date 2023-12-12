@@ -9,6 +9,16 @@
     <title>Macrobiótica Vida Natural</title>
 
     <style>
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            margin-left: 3rem;
+            margin-top: 1rem;
+        }
+
         .card-title,
         .card-text {
             color: white;
@@ -39,7 +49,7 @@
         margin-top: 35px;
         margin-left: 85px;
         margin-right: 85px;
-        padding: 15px;
+        padding-left: 15px;
         width: 1350px;
         }
 
