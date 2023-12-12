@@ -49,7 +49,7 @@
         margin-top: 35px;
         margin-left: 85px;
         margin-right: 85px;
-        padding-left: 15px;
+        padding-left: 45px;
         width: 1350px;
         }
 
