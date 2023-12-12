@@ -75,8 +75,8 @@
                 <img width="150px" height="150px" src="{{ asset($product->image_url) }}" class="card-img-top"
                     alt="{{ $product->name }}">
                 <div class="card-body">
-                    <h5 class="card-title" style="color: #4f4f4f;">{{ $product->name }}</h5>
-                    <p class="card-text" style="color: #4f4f4f;">{{ $product->description }}</p>
+                    <h5 class="card-title" style="color: #4f4f4f; font-weight: bold;">{{ $product->name }}</h5>
+                    <p class="card-text" style="color: #4f4f4f; font-weight: bold;">{{ $product->description }}</p>
                     <a href="{{ url('/contacto') }}" class="btn btn-primary">Consulte vía contáctanos</a>
                 </div>
             </div>
