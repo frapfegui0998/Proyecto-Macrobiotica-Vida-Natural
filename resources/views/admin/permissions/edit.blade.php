@@ -26,7 +26,7 @@
                 </div>
                 <div>
                     <a href="" class="px-4"><button type="submit"
-                            class="group relative h-10 w-28 overflow-hidden rounded-2xl bg-gray-400 text-lg font-bold text-white">
+                            class="group relative h-10 w-28 overflow-hidden rounded-2xl text-lg font-bold text-white" style= "background-color: #4267B2">
                             Editar
                             <div
                                 class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
@@ -72,7 +72,7 @@
                 </div>
                 <div>
                     <a href="" class="px-4"><button type="submit"
-                            class="group relative h-10 w-28 overflow-hidden rounded-2xl bg-gray-400 text-lg font-bold text-white">
+                            class="group relative h-10 w-28 overflow-hidden rounded-2xl  text-lg font-bold text-white" style= "background-color: #4267B2">
                             Asignar
                             <div
                                 class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">

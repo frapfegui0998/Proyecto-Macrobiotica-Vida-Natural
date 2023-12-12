@@ -89,7 +89,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <li>
-                        <button type="submit" class="btn btn-primary" style="margin-right: 15px; padding-top: 15px;">Cerrar Sesión</button>
+                        <button type="submit" class="btn btn-primary" style="margin-right: 15px;"><i class="fa fa-sign-out"></i></button>
                 </form>
             @else
                 <li><a href="{{ url('/login') }}"><i class="fas fa-user"></i> <span

@@ -27,11 +27,6 @@
             /* Ajusta el tamaño de la fuente según tus preferencias */
         }
 
-        .card {
-            margin-left: 2rem;
-            margin-top: 1rem;
-        }
-
 
         .btn.btn-primary {
         color: white;

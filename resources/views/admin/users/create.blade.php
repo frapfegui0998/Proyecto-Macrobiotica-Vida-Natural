@@ -26,7 +26,7 @@
             }
 
             .btn-primary {
-                background-color: #1e6c38;
+                background-color: #4267B2;
                 border: none;
                 padding: 15px 30px; /* Increase padding for larger button */
                 font-size: 24px; /* Increase font size for larger text */
