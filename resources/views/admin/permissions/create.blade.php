@@ -24,7 +24,7 @@
                 <div>
                     <a href="" class="px-4">
                         <button type="submit"
-                            class="group relative h-12 w-32 overflow-hidden rounded-lg bg-[#1e6c38] text-lg font-bold text-white">
+                            class="group relative h-12 w-32 overflow-hidden rounded-lg bg-[#4267B2] text-lg font-bold text-white">
                             Crear
                             <div
                                 class="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">

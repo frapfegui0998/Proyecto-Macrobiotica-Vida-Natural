@@ -35,18 +35,7 @@
                 </div>
             </form>
 
-            <!--  -->
-            <h2 class="pt-10 block text-base font-bold text-[#07074D]">Roles</h2>
-            @if ($product->roles)
-                @foreach ($product->roles as $permission_role)
-                    <form method="POST"
-                        action="{{ route('admin.permissions.roles.remove', [$product->id, $permission_role->id]) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="text-red-500">{{ $permission_role->name }}</button>
-                    </form>
-                @endforeach
-            @endif
+
 
             <form action="{{ route('admin.products.update', ['product' => $product->id]) }}" method="POST">
                 @csrf

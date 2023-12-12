@@ -51,7 +51,7 @@ input[type=submit]:hover {
       <div class="container" style="background-color: rgba(242, 242, 242, 0.87);, margin-left: 300px; margin-top: 80px; padding: 80px;">
         <h1>Acerca de Nosotros</h1>
         <br>
-        <div style="padding-right: 25px;">
+        <div style="padding-right: 45px;">
           <p>La Macrobiótica se especializa en la venta de productos naturales y homeopáticos, ubicada en Tejar El Guarco, en la provincia de Cartago. </p>
           <p>Nuestra dedicación se enfoca en proporcionar a nuestros clientes una gama diversa y cuidadosamente seleccionada de productos que promueven un estilo de vida saludable y equilibrado. </p>
           <p>Nos comprometemos a ofrecer alternativas naturales y homeopáticas que respalden la salud y el bienestar de nuestros clientes. </p>
