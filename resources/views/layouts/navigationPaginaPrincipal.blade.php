@@ -46,6 +46,10 @@
             padding-right: 20px;
             /* Agregar padding al lado derecho */
         }
+
+        .btn-primary {
+            background-color: ##4267B2;     
+        }
     </style>
 </head>
 
@@ -78,21 +82,20 @@
             <li><a href="{{ url('/contacto') }}">Contáctanos</a></li>
             <li><a href="{{ url('/acerca') }}">Acerca de Nosotros</a></li>
             <li><a href="{{ url('/productos') }}">Productos</a></li>
+            <li>@role('admin') <a href="{{ url('admin/') }}">Panel administrativo</a> @endrole</li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             @auth
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <li>
-                        <button type="submit" class="btn btn-danger btn-block">Cerrar Sesión</button>
+                        <button type="submit" class="btn btn-primary" style="margin-right: 15px;">Cerrar Sesión</button>
                 </form>
             @else
                 <li><a href="{{ url('/login') }}"><i class="fas fa-user"></i> <span
                             style="margin-right: 15px;">Login</span></a></li>
             @endauth
-            @role('admin')
-                <a href="{{ url('admin/') }}">Panel administrativo</a>
-            @endrole
+            
         </ul>
     </div>
 </div>

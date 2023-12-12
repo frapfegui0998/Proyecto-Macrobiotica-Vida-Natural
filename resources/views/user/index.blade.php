@@ -54,8 +54,8 @@
         border-radius: 8px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         margin-top: 35px;
-        margin-left: 55px;
-        margin-right: 55px;
+        margin-left: 85px;
+        margin-right: 85px;
         padding: 15px;
         width: auto;
         }
