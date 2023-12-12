@@ -34,14 +34,10 @@
             margin-top: 1rem;
         }
 
-        .consult-link {
-            color: white;
-        }
 
-        .consult-button {
+        .btn.btn-primary {
         color: white;
         }
-
 
         body {
             font-family: Arial, sans-serif;
@@ -57,9 +53,8 @@
         background-color: rgba(255, 255, 255, 0.7);
         border-radius: 8px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        padding: 45px;
-        width: 300px;
-        text-align: left;
+        padding: 35px;
+        width: auto;
         }
 
     </style>
@@ -79,7 +74,7 @@
                 <div class="card-body">
                     <h5 class="card-title text-white">{{ $product->name }}</h5>
                     <p class="card-text text-white">{{ $product->description }}</p>
-                    <a href="{{ url('/contacto') }}" class="btn btn-primary consult-link consult-button">Consulte vía contáctanos</a>
+                    <a href="{{ url('/contacto') }}" class="btn btn-primary">Consulte vía contáctanos</a>
                 </div>
             </div>
         @endforeach

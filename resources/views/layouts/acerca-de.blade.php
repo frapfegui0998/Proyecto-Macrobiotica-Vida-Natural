@@ -48,7 +48,7 @@ input[type=submit]:hover {
 </head>
 
 <body> 
-      <div class="container" style="background-color: rgba(242, 242, 242, 0.87);, margin-left: 300px; margin-top: 80px; padding: 80px;">
+      <div class="container" style="background-color: rgba(242, 242, 242, 0.87);, margin-left: 300px; margin-top: 80px; padding: 80px; padding-right: 15px;">
         <h1>Acerca de Nosotros</h1>
         <br>
         <p>La Macrobiótica se especializa en la venta de productos naturales y homeopáticos, ubicada en Tejar El Guarco, en la provincia de Cartago. </p>
