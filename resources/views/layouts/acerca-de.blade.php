@@ -48,14 +48,16 @@ input[type=submit]:hover {
 </head>
 
 <body> 
-      <div class="container" style="background-color: rgba(242, 242, 242, 0.87);, margin-left: 300px; margin-top: 80px; padding: 80px; padding-right: 15px;">
+      <div class="container" style="background-color: rgba(242, 242, 242, 0.87);, margin-left: 300px; margin-top: 80px; padding: 80px;">
         <h1>Acerca de Nosotros</h1>
         <br>
-        <p>La Macrobiótica se especializa en la venta de productos naturales y homeopáticos, ubicada en Tejar El Guarco, en la provincia de Cartago. </p>
-        <p>Nuestra dedicación se enfoca en proporcionar a nuestros clientes una gama diversa y cuidadosamente seleccionada de productos que promueven un estilo de vida saludable y equilibrado. </p>
-        <p>Nos comprometemos a ofrecer alternativas naturales y homeopáticas que respalden la salud y el bienestar de nuestros clientes. </p>
-        <p>En la Macrobiótica, no solo nos esforzamos por ofrecer productos de calidad, sino que también buscamos ser un recurso informativo y de apoyo para aquellos que buscan llevar un estilo de vida más natural y consciente.</p> 
-        <br>
+        <div style="padding-right: 25px;">
+          <p>La Macrobiótica se especializa en la venta de productos naturales y homeopáticos, ubicada en Tejar El Guarco, en la provincia de Cartago. </p>
+          <p>Nuestra dedicación se enfoca en proporcionar a nuestros clientes una gama diversa y cuidadosamente seleccionada de productos que promueven un estilo de vida saludable y equilibrado. </p>
+          <p>Nos comprometemos a ofrecer alternativas naturales y homeopáticas que respalden la salud y el bienestar de nuestros clientes. </p>
+          <p>En la Macrobiótica, no solo nos esforzamos por ofrecer productos de calidad, sino que también buscamos ser un recurso informativo y de apoyo para aquellos que buscan llevar un estilo de vida más natural y consciente.</p> 
+          <br>
+      </div>
         <img src="images/acerca de foto.jpg" alt="Imagen de Acerca de Nosotros" style= "width:80%">
       </div>
       

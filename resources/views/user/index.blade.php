@@ -53,7 +53,8 @@
         background-color: rgba(255, 255, 255, 0.7);
         border-radius: 8px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        padding: 35px;
+        margin: 35px;
+        padding: 15px;
         width: auto;
         }
 
@@ -73,7 +74,7 @@
                     alt="{{ $product->name }}">
                 <div class="card-body">
                     <h5 class="card-title text-white">{{ $product->name }}</h5>
-                    <p class="card-text text-white">{{ $product->description }}</p>
+                    <p class="card-text" style="color: #4f4f4f;">{{ $product->description }}</p>
                     <a href="{{ url('/contacto') }}" class="btn btn-primary">Consulte vía contáctanos</a>
                 </div>
             </div>
