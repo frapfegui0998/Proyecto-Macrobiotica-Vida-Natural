@@ -16,22 +16,25 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <style>
-         button {
+        button {
             background-color: #4267B2;
            
         }
+
+        
     </style>
 
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased" >
     <div class="min-h-screen bg-gray-100">
         <div class="flex-col md:flex md:flex-row md:min-h-screen">
             @include('layouts.admin.navigationAdmin')
             <!-- Page Content -->
-            <main class="w-full">
-                {{ $slot }}
+            <main class="w-full" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('{{ asset('images/background-admin.png') }}'); background-size: cover; background-repeat: no-repeat; background-position: center; min-height: 100vh;">
+                    {{ $slot }}
             </main>
+            
         </div>
     </div>
 </body>

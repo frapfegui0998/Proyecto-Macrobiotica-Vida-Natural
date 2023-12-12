@@ -66,8 +66,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::delete('/users/{user}/permissions/{permission}', [UserController::class, 'revokePermission'])->name('users.permissions.revoke');
     //Products
     Route::resource('/products', ProductsController::class);
-
-
 });
 
 //Breeze

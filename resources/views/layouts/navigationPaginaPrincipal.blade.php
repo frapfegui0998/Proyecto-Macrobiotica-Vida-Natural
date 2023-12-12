@@ -89,8 +89,8 @@
                  <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <li>
-                        <button type="submit" class="btn btn-primary" style="margin-right: 15px; padding-top: 15px; background-color: #6b7280;" >
-                            <i class="fas fa-sign-out-alt"></i>
+                        <button type="submit" class="btn btn-primary" style="margin-right: 15px; padding-top: 15px; background-color: #f8f8f8; border-color: #f8f8f8;" >
+                            <i class="fas fa-sign-out-alt" style="color: gray"></i>
                         </button>
                     </li>
                 </form>
