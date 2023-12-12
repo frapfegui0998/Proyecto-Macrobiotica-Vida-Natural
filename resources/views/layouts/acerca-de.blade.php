@@ -10,7 +10,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
 body p {
-  font-size: 14px; /* Cambiar el tamaño del texto de los párrafos */
+  font-size: 16px; /* Cambiar el tamaño del texto de los párrafos */
 }
 
 

@@ -8,6 +8,13 @@
               
             }
 
+            .container-form {
+                border-radius: 5px;
+                background-color: rgba(242, 242, 242, 0.8);
+                padding: 80px;
+                margin-top: 60px;
+
+             }
     </style>
 </head>
     <body class="antialiased font-sans bg-gray-200">
@@ -35,28 +42,28 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                @foreach ($products as $product)
-                                    <tr>
-                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p class="text-gray-900 whitespace-no-wrap">{{ $product->name }}</p>
-                                        </td>
+                                <tbody>
+                                    @foreach ($products as $product)
+                                        <tr>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <p class="text-gray-900 whitespace-no-wrap">{{ $product->name }}</p>
+                                            </td>
 
-                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <a href="{{ route('admin.products.edit', ['product' => $product->id]) }}"
-                                                class="text-gray-900 whitespace-no-wrap">Editar</a>
-                                        </td>
-                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <form method="POST"
-                                                action="{{ route('admin.products.destroy', ['product' => $product->id]) }}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="text-red-500">Eliminar</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <a href="{{ route('admin.products.edit', ['product' => $product->id]) }}"
+                                                    class="text-gray-900 whitespace-no-wrap">Editar</a>
+                                            </td>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <form method="POST"
+                                                    action="{{ route('admin.products.destroy', ['product' => $product->id]) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="text-red-500">Eliminar</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
                         </table>
 
                     </div>
