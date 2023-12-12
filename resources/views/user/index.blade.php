@@ -57,7 +57,7 @@
         margin-left: 85px;
         margin-right: 85px;
         padding: 15px;
-        width: auto;
+        width: 550px;
         }
 
     </style>
