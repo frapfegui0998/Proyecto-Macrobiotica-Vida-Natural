@@ -48,7 +48,7 @@
         }
 
         .btn-primary {
-            background-color: #6b7280;     
+            background-color: #4267B2;     
         }
     </style>
 </head>
@@ -89,7 +89,7 @@
                  <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <li>
-                        <button type="submit" class="btn btn-primary" style="margin-right: 15px; padding-top: 15px;">
+                        <button type="submit" class="btn btn-primary" style="margin-right: 15px; padding-top: 15px; background-color: #6b7280;" >
                             <i class="fas fa-sign-out-alt"></i>
                         </button>
                     </li>
