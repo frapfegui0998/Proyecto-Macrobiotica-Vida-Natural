@@ -30,10 +30,11 @@ class ProductsController extends Controller
                 'name' => ['required', 'string', 'max:255'],
                 'description' => ['string', 'max:255'],
                 'price' => ['required', 'numeric'],
+                'image_url' => ['string', 'max:255'],
             ]
         );
         Products::create($request->post());
-        return redirect()->route('admin.products.index')->with('success', 'User has been created successfully');
+        return redirect()->route('admin.products.index')->with('success', 'Producto creado con éxito');
     }
 
     public function edit(Products $product)

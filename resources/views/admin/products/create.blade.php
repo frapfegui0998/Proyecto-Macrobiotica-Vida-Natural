@@ -46,7 +46,7 @@
                     <div class="pull-left mb-2">
                         <h2>Agregar producto</h2>
                     </div>
-                  
+
                 </div>
             </div>
             @if (session('status'))
@@ -54,13 +54,13 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.products.store') }}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Nombre del producto:</strong>
-                            <input type="text" name="name" class="form-control" placeholder="Nombre">
+                            <input type="text" name="name" class="form-control" placeholder="Nombre" required>
                             @error('name')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                             @enderror
@@ -77,8 +77,27 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
+                            <strong>Imagen (Opcional):</strong>
+                            <input type="text" name="image_url" class="form-control" placeholder="Imagen">
+                            @error('email')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
                             <strong>Precio:</strong>
-                            <input type="number" name="price" class="form-control" placeholder="Precio">
+                            <input type="number" name="price" class="form-control" placeholder="Precio" required>
+                            @error('password')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Cantidad:</strong>
+                            <input type="number" name="stock_quantity" class="form-control" placeholder="Cantidad"
+                                required>
                             @error('password')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                             @enderror
@@ -86,7 +105,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
-                <a class="btn btn-primary" href="{{ route('admin.users.index') }}"> Regresar</a>
+                    <a class="btn btn-primary" href="{{ route('admin.products.index') }}"> Regresar</a>
                     <button type="submit" class="btn btn-primary ml-3">Crear</button>
                 </div>
             </form>

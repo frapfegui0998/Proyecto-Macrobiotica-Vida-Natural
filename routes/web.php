@@ -40,7 +40,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('paginaPrincipal');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 //Admin

@@ -38,8 +38,8 @@ return [
             'transport' => 'smtp',
             'host' => env('MAIL_HOST', 'smtp.office365.com'),
             'port' => env('MAIL_PORT', 587),
-            // 'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME', 'macrobioticaprueba@hotmail.com'),
+            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+            'username' => env('MAIL_USERNAME', 'macrovidanatural1@hotmail.com'),
             'password' => env('MAIL_PASSWORD', 'MacroHFCD3?'),
             'timeout' => null,
 

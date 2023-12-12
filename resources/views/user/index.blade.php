@@ -34,6 +34,10 @@
             margin-top: 1rem;
         }
 
+        .consult-link {
+            color: white;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-image: url('{{ asset('images/macrobiotica.jpg') }}');
@@ -59,11 +63,13 @@
     <div class="productos">
         @foreach ($products as $product)
             <div class="card">
-                <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->name }}">
+                {{-- <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->name }}"> --}}
+                <img width="150px" height="150px" src="{{ asset($product->image_url) }}" class="card-img-top"
+                    alt="{{ $product->name }}">
                 <div class="card-body">
                     <h5 class="card-title text-white">{{ $product->name }}</h5>
                     <p class="card-text text-white">{{ $product->description }}</p>
-                    <a href="#" class="btn btn-primary">Ver detalles</a>
+                    <a href={{ url('/contacto') }} class="btn btn-primary consult-link">Consulte via contáctanos</a>
                 </div>
             </div>
         @endforeach
