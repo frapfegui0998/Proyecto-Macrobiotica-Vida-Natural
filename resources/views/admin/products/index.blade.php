@@ -2,8 +2,8 @@
     <!-- component -->
     <head>
     <style>
-         .btn-primary {
-                background-color: #1e6c38;
+            .btn-primary {
+                background-color: #4267B2;
               
               
             }

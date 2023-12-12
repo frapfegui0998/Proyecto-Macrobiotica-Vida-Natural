@@ -12,8 +12,6 @@
         .productos {
             display: flex;
             flex-wrap: wrap;
-            margin-left: 2rem;
-            padding-left: 2rem;
         }
 
         .card {
@@ -57,7 +55,7 @@
         margin-left: 85px;
         margin-right: 85px;
         padding: 15px;
-        width: 550px;
+        width: 1350px;
         }
 
     </style>
@@ -67,21 +65,21 @@
     @include('layouts.navigationPaginaPrincipal')
 </header>
 
-<div class="login-container">
-    <div class="productos">
-        @foreach ($products as $product)
-            <div class="card">
-                {{-- <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->name }}"> --}}
-                <img width="150px" height="150px" src="{{ asset($product->image_url) }}" class="card-img-top"
-                    alt="{{ $product->name }}">
-                <div class="card-body">
-                    <h5 class="card-title" style="color: #4f4f4f; font-weight: bold;">{{ $product->name }}</h5>
-                    <p class="card-text" style="color: #4f4f4f; font-weight: bold;">{{ $product->description }}</p>
-                    <a href="{{ url('/contacto') }}" class="btn btn-primary">Consulte vía contáctanos</a>
+    <div class="login-container">
+        <div class="productos">
+            @foreach ($products as $product)
+                <div class="card">
+                    {{-- <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->name }}"> --}}
+                    <img width="150px" height="150px" src="{{ asset($product->image_url) }}" class="card-img-top"
+                        alt="{{ $product->name }}">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #4f4f4f; font-weight: bold;">{{ $product->name }}</h5>
+                        <p class="card-text" style="color: #4f4f4f; font-weight: bold;">{{ $product->description }}</p>
+                        <a href="{{ url('/contacto') }}" class="btn btn-primary">Consulte vía contáctanos</a>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
-</div>
 
 </html>
