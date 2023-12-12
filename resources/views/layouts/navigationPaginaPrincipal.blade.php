@@ -86,15 +86,15 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             @auth
-              <form method="POST" action="{{ route('logout') }}">
-                  @csrf
-                  <li>
-                      <button type="submit" class="btn btn-primary" style="margin-right: 15px; padding-top: 15px;">
-                          <i class="fas fa-sign-out-alt"></i>
-                      </button>
-                  </li>
-              </form>
-        @endauth
+                 <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <li>
+                        <button type="submit" class="btn btn-primary" style="margin-right: 15px; padding-top: 15px;">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </li>
+                </form>
+            @else
                 <li><a href="{{ url('/login') }}"><i class="fas fa-user"></i> <span
                             style="margin-right: 15px;">Login</span></a></li>
             @endauth
