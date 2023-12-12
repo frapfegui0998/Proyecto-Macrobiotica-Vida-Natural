@@ -85,15 +85,17 @@
             <li style="font-weight: bold;">@role('admin') <a href="{{ url('admin/') }}">Panel administrativo</a> @endrole</li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            @auth
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <li>
-                      <i class="fas fa-sign-out-alt"></i> <span style="margin-right: 15px;"></span></a></li>
-                </form>
-            @else
-                <li><a href="{{ url('/login') }}"><i class="fas fa-user"></i> <span style="margin-right: 15px;">Login</span></a></li>
-            @endauth
+        @auth
+              <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <li>
+                      <button type="submit" class="btn btn-primary" style="margin-right: 15px;">
+                          <i class="fas fa-sign-out-alt"></i>
+                      </button>
+                  </li>
+              </form>
+          @endauth
+            
         </ul>
     </div>
 </div>

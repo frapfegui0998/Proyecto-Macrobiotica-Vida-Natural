@@ -9,16 +9,6 @@
     <title>Macrobiótica Vida Natural</title>
 
     <style>
-        .productos {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            margin-left: 3rem;
-            margin-top: 1rem;
-        }
-
         .card-title,
         .card-text {
             color: white;
