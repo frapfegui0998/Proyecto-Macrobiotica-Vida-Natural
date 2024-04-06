@@ -47,19 +47,19 @@ class UserController extends Controller
     public function givePermission(Request $request, User $user)
     {
         if ($user->hasPermissionTo($request->permission)) {
-            return back()->with('message', 'Permission exists.');
+            return back()->with('message', 'El permiso existe.');
         }
         $user->givePermissionTo($request->permission);
-        return back()->with('message', 'Permission added.');
+        return back()->with('message', 'Permiso añadido.');
     }
 
     public function revokePermission(User $user, Permission $permission)
     {
         if ($user->hasPermissionTo($permission)) {
             $user->revokePermissionTo($permission);
-            return back()->with('message', 'Permission revoked.');
+            return back()->with('message', 'Permiso revocado.');
         }
-        return back()->with('message', 'Permission does not exists.');
+        return back()->with('message', 'El permiso no existe.');
     }
 
     public function create()
@@ -73,11 +73,11 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'string', 'min:3'],
-        
+
         ]
            );
         User::create($request->post());
-        return redirect()->route ('admin.users.index')->with('success','User has been created successfully');
+        return redirect()->route ('admin.users.index')->with('success','Usuario creado con éxito.');
     }
 
     public function edit(User $user)
@@ -94,7 +94,7 @@ class UserController extends Controller
         ]);
     $user->update($request->all());
 
-    return redirect()->route('admin.users.index')->with('success', 'User has been updated successfully');
+    return redirect()->route('admin.users.index')->with('success', 'Usuario actualizado con éxito');
   }
 
     public function destroy(User $user)

@@ -54,7 +54,8 @@
 <body>
     <div class="container-form">
         <h2>Contáctanos</h2>
-        <form action="#">
+        <form method="POST" action="{{ route('enviar.correo') }}">
+            @csrf
             <div class="form-group">
                 <label for="fname">Nombre</label>
                 <input type="text" id="fname" name="firstname" placeholder="Tu nombre..">
@@ -67,14 +68,15 @@
                 <label for="subject">Mensaje</label>
                 <textarea id="subject" name="subject" placeholder="Escribe algo.." style="height:200px"></textarea>
             </div>
-            <button onclick="smtp()" type="" class="btn btn-default">Enviar</button>
+            <button type="submit" class="btn btn-default">Enviar</button>
+            <script>
+                function smtp() {
+                    alert("Mensaje enviado con éxito!");
+                    document.getElementById("fname").values = "";
+                }
+            </script>
         </form>
-        <script>
-            function smtp() {
-                alert("Mensaje enviado con éxito!");
-                document.getElementById("fname").values = "";
-            }
-        </script>
+
     </div>
 
 </body>

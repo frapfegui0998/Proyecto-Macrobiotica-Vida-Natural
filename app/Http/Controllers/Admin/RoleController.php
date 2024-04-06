@@ -25,7 +25,7 @@ class RoleController extends Controller
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         Role::create($validated);
 
-        return to_route('admin.roles.index')->with('message', 'Role Created successfully.');
+        return to_route('admin.roles.index')->with('message', 'Rol creado con éxito.');
     }
 
     public function edit(Role $role)
@@ -39,31 +39,34 @@ class RoleController extends Controller
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         $role->update($validated);
 
-        return to_route('admin.roles.index')->with('message', 'Rol actualizado correctamente.');
+        return to_route('admin.roles.index')->with('message', 'Rol actualizado con éxito.');
     }
 
     public function destroy(Role $role)
-    {
-        $role->delete();
-
-        return back()->with('message', 'Role deleted.');
+{
+    if ($role->name === 'admin') {
+        return back()->with('error', 'No puedes eliminar el rol de administrador.');
     }
+
+    $role->delete();
+    return back()->with('message', 'Rol eliminado con éxito.');
+}
 
     public function givePermission(Request $request, Role $role)
     {
         if ($role->hasPermissionTo($request->permission)) {
-            return back()->with('message', 'Permission exists.');
+            return back()->with('message', 'El permiso existe.');
         }
         $role->givePermissionTo($request->permission);
-        return back()->with('message', 'Permission added.');
+        return back()->with('message', 'Permiso añadido.');
     }
 
     public function revokePermission(Role $role, Permission $permission)
     {
         if ($role->hasPermissionTo($permission)) {
             $role->revokePermissionTo($permission);
-            return back()->with('message', 'Permission revoked.');
+            return back()->with('message', 'Permiso revocado.');
         }
-        return back()->with('message', 'Permission not exists.');
+        return back()->with('message', 'El permiso no existe.');
     }
 }

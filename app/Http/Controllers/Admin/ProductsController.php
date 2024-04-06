@@ -48,7 +48,7 @@ class ProductsController extends Controller
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         $product->update($validated);
 
-        return to_route('admin.products.index')->with('message', 'Product Updated successfully.');
+        return to_route('admin.products.index')->with('message', 'Producto actualizado con éxito.');
     }
 
     /*public function Update(Request $request, Products $product){
@@ -67,7 +67,7 @@ class ProductsController extends Controller
     {
         $product->delete();
 
-        return back()->with('message', 'Product deleted.');
+        return back()->with('message', 'Producto eliminado con éxito.');
     }/*
 
     public function assignRole(Request $request, Permission $permission)

@@ -58,40 +58,88 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <form action="{{ route('admin.users.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.users.store') }}" method="POST">
                 @csrf
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <strong>Nombre de usuario:</strong>
-                            <input type="text" name="name" class="form-control" placeholder="User Name">
-                            @error('name')
-                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                            @enderror
+                <div class="flex flex-wrap -mx-3 py-2">
+                    <div class="w-full md:w-1/2 px-3">
+                        <div class="mb-2">
+                            <label for="name" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                                Nombre de usuario
+                            </label>
+                            <input type="text" name="name" placeholder="Nombre de usuario" required
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                         </div>
+                        @error('name')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <strong>Correo electrónico:</strong>
-                            <input type="email" name="email" class="form-control" placeholder="User Email">
-                            @error('email')
-                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                            @enderror
+                    <div class="w-full md:w-1/2 px-3">
+                        <div class="mb-2">
+                            <label for="email" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                                Correo electrónico
+                            </label>
+                            <input type="text" name="email" placeholder="Correo"
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                         </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <strong>Contraseña:</strong>
-                            <input type="text" name="password" class="form-control" placeholder="User Password">
-                            @error('password')
-                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                            @enderror
-                        </div>
+                        @error('email')
+                            <span class="text-red-400 text-sm">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <a class="btn btn-primary" href="{{ route('admin.users.index') }}"> Regresar</a>
-                    <button type="submit" class="btn btn-primary ml-3">Crear</button>
+                <div class="flex flex-wrap -mx-3 py-2">
+                    <div class="w-full md:w-1/2 px-3">
+                        <div class="mb-2">
+                            <label for="password" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                                Contraseña
+                            </label>
+                            <input type="text" name="password" placeholder="Contraseña"
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
+                        </div>
+                        @error('password')
+                            <span class="text-red-400 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <div class="mb-2">
+                            <label for="price" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                                Precio
+                            </label>
+                            <input type="number" name="price" placeholder="Precio" required
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
+                        </div>
+                        @error('price')
+                            <span class="text-red-400 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 py-2">
+                    <div class="w-full md:w-1/2 px-3">
+                        <div class="mb-2">
+                            <label for="stock_quantity" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                                Cantidad
+                            </label>
+                            <input type="text" name="stock_quantity" placeholder="Cantidad" required
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
+                        </div>
+                        @error('stock_quantity')
+                            <span class="text-red-400 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <button type="submit"
+                        class="group relative h-12 w-32 overflow-hidden rounded-lg bg-[#4267B2] text-lg font-bold text-white">
+                        Crear
+                        <div
+                            class="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
+                        </div>
+                    </button>
+                    <!-- Separador -->
+                    <div class="mx-3"></div>
+                    <a href="{{ route('admin.users.index') }}"
+                        class="flex items-center justify-center h-12 px-6 font-semibold text-white transition duration-500 ease-in-out transform bg-gray-700 rounded-lg hover:bg-gray-600 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
+                        <span class="inline-block">Regresar</span>
+                    </a>
                 </div>
             </form>
         </div>

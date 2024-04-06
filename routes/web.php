@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\User\ProductController;
+use App\Http\Controllers\Correo\CorreoController;
 
 
 /*
@@ -67,6 +68,13 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     //Products
     Route::resource('/products', ProductsController::class);
 });
+
+//Correo petición de productos
+Route::post('/enviar-correo', [CorreoController::class, 'enviarCorreo'])->name('enviar.correo');
+
+//Rol Admin
+Route::delete('roles/{role}', [RoleController::class, 'destroy'])->middleware('admin');
+
 
 //Breeze
 Route::middleware('auth')->group(function () {
