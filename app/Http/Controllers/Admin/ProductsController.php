@@ -30,6 +30,7 @@ class ProductsController extends Controller
                 'name' => ['required', 'string', 'max:255'],
                 'description' => ['string', 'max:255'],
                 'price' => ['required', 'numeric'],
+                'stock_quantity' => ['required', 'numeric'],
                 'image_url' => ['string', 'max:255'],
             ]
         );

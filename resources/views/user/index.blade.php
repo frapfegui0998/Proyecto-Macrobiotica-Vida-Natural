@@ -64,6 +64,9 @@
                 <div class="card-body">
                     <h5 class="card-title" style="color: #4f4f4f; font-weight: bold;">{{ $product->name }}</h5>
                     <p class="card-text" style="color: #4f4f4f; font-weight: bold;">{{ $product->description }}</p>
+                    <p class="card-text" style="color: #4f4f4f; font-weight: bold;">Precio: {{ $product->price }}₡</p>
+                    <p class="card-text" style="color: #4f4f4f; font-weight: bold;">Disponibilidad:
+                        {{ $product->stock_quantity }} Unds</p>
                     <a href="{{ url('/contacto') }}" class="btn btn-primary">Consulte "Contáctanos"</a>
                 </div>
             </div>

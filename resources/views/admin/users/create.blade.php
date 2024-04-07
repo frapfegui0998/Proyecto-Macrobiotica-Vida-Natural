@@ -66,64 +66,37 @@
                             <label for="name" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
                                 Nombre de usuario
                             </label>
-                            <input type="text" name="name" placeholder="Nombre de usuario" required
+                            <input type="text" name="name" placeholder="Nombre de usuario"
+                                value="{{ old('name') }}"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
+                            @error('name')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
-                        @error('name')
-                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <div class="mb-2">
                             <label for="email" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
                                 Correo electrónico
                             </label>
-                            <input type="text" name="email" placeholder="Correo"
+                            <input type="text" name="email" placeholder="Correo" value="{{ old('email') }}"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
+                            @error('email')
+                                <span class="text-red-400 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
-                        @error('email')
-                            <span class="text-red-400 text-sm">{{ $message }}</span>
-                        @enderror
                     </div>
-                </div>
-                <div class="flex flex-wrap -mx-3 py-2">
                     <div class="w-full md:w-1/2 px-3">
                         <div class="mb-2">
                             <label for="password" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
                                 Contraseña
                             </label>
-                            <input type="text" name="password" placeholder="Contraseña"
+                            <input type="text" name="password" placeholder="Contraseña" value="{{ old('password') }}"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
+                            @error('password')
+                                <span class="text-red-400 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
-                        @error('password')
-                            <span class="text-red-400 text-sm">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="w-full md:w-1/2 px-3">
-                        <div class="mb-2">
-                            <label for="price" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
-                                Precio
-                            </label>
-                            <input type="number" name="price" placeholder="Precio" required
-                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
-                        </div>
-                        @error('price')
-                            <span class="text-red-400 text-sm">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="flex flex-wrap -mx-3 py-2">
-                    <div class="w-full md:w-1/2 px-3">
-                        <div class="mb-2">
-                            <label for="stock_quantity" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
-                                Cantidad
-                            </label>
-                            <input type="text" name="stock_quantity" placeholder="Cantidad" required
-                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
-                        </div>
-                        @error('stock_quantity')
-                            <span class="text-red-400 text-sm">{{ $message }}</span>
-                        @enderror
                     </div>
                 </div>
                 <div class="flex justify-center">
@@ -134,7 +107,6 @@
                             class="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
                         </div>
                     </button>
-                    <!-- Separador -->
                     <div class="mx-3"></div>
                     <a href="{{ route('admin.users.index') }}"
                         class="flex items-center justify-center h-12 px-6 font-semibold text-white transition duration-500 ease-in-out transform bg-gray-700 rounded-lg hover:bg-gray-600 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">

@@ -62,7 +62,8 @@
                             <label for="name" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
                                 Nombre del producto
                             </label>
-                            <input type="text" name="name" placeholder="Nombre del producto" required
+                            <input type="text" name="name" placeholder="Nombre del producto"
+                                value="{{ old('name') }}"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                         </div>
                         @error('name')
@@ -72,9 +73,10 @@
                     <div class="w-full md:w-1/2 px-3">
                         <div class="mb-2">
                             <label for="description" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
-                                Descripción (Opcional)
+                                Descripción
                             </label>
-                            <input type="text" name="description" placeholder="Descripción (Opcional)"
+                            <input type="text" name="description" placeholder="Descripción"
+                                value="{{ old('description') }}"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                         </div>
                         @error('description')
@@ -86,9 +88,9 @@
                     <div class="w-full md:w-1/2 px-3">
                         <div class="mb-2">
                             <label for="image_url" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
-                                Imagen (Opcional)
+                                Imagen
                             </label>
-                            <input type="text" name="image_url" placeholder="Imagen (Opcional)"
+                            <input type="text" name="image_url" placeholder="Imagen" value="{{ old('image_url') }}"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                         </div>
                         @error('image_url')
@@ -100,7 +102,7 @@
                             <label for="price" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
                                 Precio
                             </label>
-                            <input type="number" name="price" placeholder="Precio" required
+                            <input type="number" name="price" placeholder="Precio" value="{{ old('price') }}"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                         </div>
                         @error('price')
@@ -114,7 +116,8 @@
                             <label for="stock_quantity" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
                                 Cantidad
                             </label>
-                            <input type="text" name="stock_quantity" placeholder="Cantidad" required
+                            <input type="text" name="stock_quantity" placeholder="Cantidad"
+                                value="{{ old('stock_quantity') }}"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                         </div>
                         @error('stock_quantity')
