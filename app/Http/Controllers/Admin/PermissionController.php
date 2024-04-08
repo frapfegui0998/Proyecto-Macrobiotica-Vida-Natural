@@ -39,14 +39,14 @@ class PermissionController extends Controller
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         $permission->update($validated);
 
-        return to_route('admin.permissions.index')->with('message', 'Permiso actualizado con éxito.');
+        return to_route('admin.permissions.index')->with('updated', 'Permiso actualizado con éxito.');
     }
 
     public function destroy(Permission $permission)
     {
         $permission->delete();
 
-        return back()->with('message', 'Permiso eliminado con éxito.');
+        return back()->with('deleted', 'Permiso eliminado con éxito.');
     }
 
     public function assignRole(Request $request, Permission $permission)

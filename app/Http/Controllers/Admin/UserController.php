@@ -77,7 +77,8 @@ class UserController extends Controller
         ]
            );
         User::create($request->post());
-        return redirect()->route ('admin.users.index')->with('success','Usuario creado con éxito.');
+        /*return redirect()->route ('admin.users.index')->with('success','Usuario creado con éxito.');*/
+        return to_route('admin.users.index')->with('message', 'Usuario creado con éxito.');
     }
 
     public function edit(User $user)
@@ -94,15 +95,15 @@ class UserController extends Controller
         ]);
     $user->update($request->all());
 
-    return redirect()->route('admin.users.index')->with('success', 'Usuario actualizado con éxito');
+    return redirect()->route('admin.users.index')->with('updated', 'Usuario actualizado con éxito');
   }
 
     public function destroy(User $user)
     {
         if ($user->hasRole('admin')) {
-            return back()->with('message', 'No puedes eliminar un Administrador');
+            return back()->with('deleted', 'No puedes eliminar un Administrador');
         }
         $user->delete();
-        return back()->with('message', 'Usuario Eliminado');
+        return back()->with('deleted', 'Usuario Eliminado con éxito');
     }
 }

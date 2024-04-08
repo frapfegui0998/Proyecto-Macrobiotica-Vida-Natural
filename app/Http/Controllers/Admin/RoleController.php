@@ -39,17 +39,17 @@ class RoleController extends Controller
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         $role->update($validated);
 
-        return to_route('admin.roles.index')->with('message', 'Rol actualizado con éxito.');
+        return to_route('admin.roles.index')->with('updated', 'Rol actualizado con éxito.');
     }
 
     public function destroy(Role $role)
 {
     if ($role->name === 'admin') {
-        return back()->with('error', 'No puedes eliminar el rol de administrador.');
+        return back()->with('deleted', 'No puedes eliminar el rol de administrador.');
     }
 
     $role->delete();
-    return back()->with('message', 'Rol eliminado con éxito.');
+    return back()->with('deleted', 'Rol eliminado con éxito.');
 }
 
     public function givePermission(Request $request, Role $role)
@@ -67,6 +67,6 @@ class RoleController extends Controller
             $role->revokePermissionTo($permission);
             return back()->with('message', 'Permiso revocado.');
         }
-        return back()->with('message', 'El permiso no existe.');
+        return back()->with('deleted', 'El permiso no existe.');
     }
 }

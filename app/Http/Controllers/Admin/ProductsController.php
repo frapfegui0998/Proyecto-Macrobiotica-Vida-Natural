@@ -35,7 +35,8 @@ class ProductsController extends Controller
             ]
         );
         Products::create($request->post());
-        return redirect()->route('admin.products.index')->with('success', 'Producto creado con éxito');
+        /*return redirect()->route('admin.products.index')->with('success', 'Producto creado con éxito');*/
+        return to_route('admin.products.index')->with('message', 'Producto creado con éxito.');
     }
 
     public function edit(Products $product)
@@ -49,7 +50,7 @@ class ProductsController extends Controller
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         $product->update($validated);
 
-        return to_route('admin.products.index')->with('message', 'Producto actualizado con éxito.');
+        return to_route('admin.products.index')->with('updated', 'Producto actualizado con éxito.');
     }
 
     /*public function Update(Request $request, Products $product){
@@ -68,7 +69,7 @@ class ProductsController extends Controller
     {
         $product->delete();
 
-        return back()->with('message', 'Producto eliminado con éxito.');
+        return back()->with('deleted', 'Producto eliminado con éxito.');
     }/*
 
     public function assignRole(Request $request, Permission $permission)
