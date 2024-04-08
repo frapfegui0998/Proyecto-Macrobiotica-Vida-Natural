@@ -86,17 +86,18 @@ class UserController extends Controller
         return view('admin.users.edit',compact('user'));
     }
 
-    public function Update(Request $request, User $user){
+    public function update(Request $request, User $user)
+{
+    $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
+        'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+    ]);
 
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
-            'password' => ['required', 'string', 'min:3'],
-        ]);
-    $user->update($request->all());
+    $user->update($request->except('password_confirmation'));
 
     return redirect()->route('admin.users.index')->with('updated', 'Usuario actualizado con éxito');
-  }
+}
 
     public function destroy(User $user)
     {

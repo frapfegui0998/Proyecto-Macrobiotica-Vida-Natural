@@ -46,12 +46,18 @@ class ProductsController extends Controller
     }
 
     public function update(Request $request, Products $product)
-    {
-        $validated = $request->validate(['name' => ['required', 'min:3']]);
-        $product->update($validated);
+{
+    $validated = $request->validate([
+        'name' => ['required', 'min:3'],
+        'description' => ['required', 'min:5'],
+        'price' => ['required', 'numeric', 'min:0'],
+        'stock_quantity' => ['required', 'integer', 'min:0'],
+    ]);
 
-        return to_route('admin.products.index')->with('updated', 'Producto actualizado con éxito.');
-    }
+    $product->update($validated);
+
+    return redirect()->route('admin.products.index')->with('updated', 'Producto actualizado con éxito.');
+}
 
     /*public function Update(Request $request, Products $product){
 

@@ -29,10 +29,15 @@ class RoleController extends Controller
     }
 
     public function edit(Role $role)
-    {
-        $permissions = Permission::all();
-        return view('admin.roles.edit', compact('role', 'permissions'));
+{
+    // Verificar si el rol es "admin"
+    if ($role->name === 'admin') {
+        return redirect()->back()->with('deleted', 'No puedes editar el rol de administrador.');
     }
+
+    $permissions = Permission::all();
+    return view('admin.roles.edit', compact('role', 'permissions'));
+}
 
     public function update(Request $request, Role $role)
     {
