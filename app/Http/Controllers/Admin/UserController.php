@@ -78,10 +78,11 @@ class UserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'string', 'min:3'],
+            'password' => ['required', 'nullable', 'string', 'min:8', 'confirmed'],
 
         ]
            );
+
         User::create($request->post());
         /*return redirect()->route ('admin.users.index')->with('success','Usuario creado con éxito.');*/
         return to_route('admin.users.index')->with('message', 'Usuario creado con éxito.');
@@ -97,7 +98,7 @@ class UserController extends Controller
     $request->validate([
         'name' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
-        'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+        'password' => ['required', 'nullable', 'string', 'min:8', 'confirmed'],
     ]);
 
     $user->update($request->except('password_confirmation'));

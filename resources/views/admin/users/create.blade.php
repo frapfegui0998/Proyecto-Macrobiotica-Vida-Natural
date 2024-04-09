@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Add Users Form</title>
+        <title>Agregar usuario</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <style>
             body {
@@ -91,11 +91,21 @@
                             <label for="password" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
                                 Contraseña
                             </label>
-                            <input type="text" name="password" placeholder="Contraseña" value="{{ old('password') }}"
+                            <input type="password" name="password" placeholder="Contraseña"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                             @error('password')
                                 <span class="text-red-400 text-sm">{{ $message }}</span>
                             @enderror
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <div class="mb-2">
+                            <label for="password_confirmation"
+                                class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                                Confirmar Contraseña
+                            </label>
+                            <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña"
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                         </div>
                     </div>
                 </div>
