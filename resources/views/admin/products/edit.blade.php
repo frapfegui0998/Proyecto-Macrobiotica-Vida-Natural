@@ -61,14 +61,24 @@
                     </div>
                 </div>
                 <div>
-                    <a href="" class="px-4"><button type="submit"
+                    <a href="{{ route('admin.products.index') }}" class="px-4">
+                        <button type="button"
                             class="group relative h-10 w-28 overflow-hidden rounded-2xl text-lg font-bold text-white"
                             style="background-color: #4267B2">
-                            Editar
+                            Regresar
                             <div
                                 class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
                             </div>
-                        </button></a>
+                        </button>
+                    </a>
+                    <button type="submit"
+                        class="group relative h-10 w-28 overflow-hidden rounded-2xl text-lg font-bold text-white"
+                        style="background-color: #4267B2">
+                        Editar
+                        <div
+                            class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
+                        </div>
+                    </button>
                 </div>
             </form>
         </div>

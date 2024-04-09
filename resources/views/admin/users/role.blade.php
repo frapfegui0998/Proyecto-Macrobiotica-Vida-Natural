@@ -23,6 +23,39 @@
                     @endforeach
                 @endif
 
+                <!-- ELIMINACIÓN EXITOSA -->
+                @if (session('deleted'))
+                    <div class="max-w-full mx-auto">
+                        <div class="flex bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700" role="alert">
+                            <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <div>
+                                <span class="font-medium">¡Alerta!</span> {{ session('deleted') }}
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
+                <!-- CREACIÓN EXITOSA -->
+                @if (session('message'))
+                    <div class="max-w-full mx-auto">
+                        <div class="flex bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700" role="alert">
+                            <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <div>
+                                <span class="font-medium">¡Alerta!</span> {{ session('message') }}
+                            </div>
+                        </div>
+                    </div>
+                @endif
                 <form action="{{ route('admin.users.roles', ['user' => $user->id]) }}" method="POST">
                     @csrf
                     <div class="-mx-3 flex flex-wrap py-3">
@@ -46,13 +79,22 @@
                         </div>
                     </div>
                     <div>
-                        <a href="" class="px-4"><button type="submit"
+                        <a href="{{ route('admin.users.index') }}" class="px-4">
+                            <button type="button"
                                 class="group relative h-10 w-28 overflow-hidden rounded-2xl bg-gray-400 text-lg font-bold text-white">
-                                Asignar
+                                Regresar
                                 <div
                                     class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
                                 </div>
-                            </button></a>
+                            </button>
+                        </a>
+                        <button type="submit"
+                            class="group relative h-10 w-28 overflow-hidden rounded-2xl bg-gray-400 text-lg font-bold text-white">
+                            Asignar
+                            <div
+                                class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
+                            </div>
+                        </button>
                     </div>
                 </form>
             </div>
@@ -92,13 +134,22 @@
                         </div>
                     </div>
                     <div>
-                        <a href="" class="px-4"><button type="submit"
+                        <a href="{{ route('admin.users.index') }}" class="px-4">
+                            <button type="button"
                                 class="group relative h-10 w-28 overflow-hidden rounded-2xl bg-gray-400 text-lg font-bold text-white">
-                                Asignar
+                                Regresar
                                 <div
                                     class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
                                 </div>
-                            </button></a>
+                            </button>
+                        </a>
+                        <button type="submit"
+                            class="group relative h-10 w-28 overflow-hidden rounded-2xl bg-gray-400 text-lg font-bold text-white">
+                            Asignar
+                            <div
+                                class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
+                            </div>
+                        </button>
                     </div>
                 </form>
             </div>

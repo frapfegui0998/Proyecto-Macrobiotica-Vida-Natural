@@ -35,13 +35,19 @@ class UserController extends Controller
     }
 
     public function removeRole(User $user, Role $role)
-    {
-        if ($user->hasRole($role)) {
-            $user->removeRole($role);
-            return back()->with('message', 'Rol removido.');
-        }
-        return back()->with('message', 'Este Rol no está asignado.');
+{
+    // Verificar si el usuario tiene el rol de administrador y si es así, no permitir su eliminación
+    if ($role->name === 'admin') {
+        return back()->with('deleted', 'El rol de administrador no puede ser removido.');
     }
+
+    if ($user->hasRole($role)) {
+        $user->removeRole($role);
+        return back()->with('deleted', 'Rol removido.');
+    }
+
+    return back()->with('deleted', 'Este Rol no está asignado.');
+}
 
     //Permissions
     public function givePermission(Request $request, User $user)
