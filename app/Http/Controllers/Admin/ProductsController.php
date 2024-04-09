@@ -7,6 +7,7 @@ use App\Models\Products;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use App\Http\Requests\ProductRequest;
 
 class ProductsController extends Controller
 {
@@ -23,7 +24,7 @@ class ProductsController extends Controller
 
 
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $request->validate(
             [
@@ -34,7 +35,10 @@ class ProductsController extends Controller
                 'image_url' => ['string', 'max:255'],
             ]
         );
-        Products::create($request->post());
+
+        $validatedData = $request->validated();
+
+        Products::create($validatedData);
         /*return redirect()->route('admin.products.index')->with('success', 'Producto creado con éxito');*/
         return to_route('admin.products.index')->with('message', 'Producto creado con éxito.');
     }
@@ -45,13 +49,14 @@ class ProductsController extends Controller
         return view('admin.products.edit', compact('product', 'roles'));
     }
 
-    public function update(Request $request, Products $product)
+    public function update(ProductRequest $request, Products $product)
 {
     $validated = $request->validate([
-        'name' => ['required', 'min:3'],
-        'description' => ['required', 'min:5'],
+        'name' => ['required', 'max:255', 'string'],
+        'description' => ['required', 'max:255', 'string'],
         'price' => ['required', 'numeric', 'min:0'],
         'stock_quantity' => ['required', 'integer', 'min:0'],
+        'image_url' => ['required', 'max:255', 'string'],
     ]);
 
     $product->update($validated);
@@ -59,40 +64,11 @@ class ProductsController extends Controller
     return redirect()->route('admin.products.index')->with('updated', 'Producto actualizado con éxito.');
 }
 
-    /*public function Update(Request $request, Products $product){
-
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'email', 'max:255', 'unique:' . Products::class],
-            'price' => ['required', 'string', 'min:3'],
-        ]);
-    $product->update($request->all());
-
-    return redirect()->route('admin.products.index')->with('success', 'Product has been updated successfully');
-  }*/
 
     public function destroy(Products $product)
     {
         $product->delete();
 
         return back()->with('deleted', 'Producto eliminado con éxito.');
-    }/*
-
-    public function assignRole(Request $request, Permission $permission)
-    {
-        if ($permission->hasRole($request->role)) {
-            return back()->with('message', 'El Rol ya existe.');
-        }
-        $permission->assignRole($request->role);
-        return back()->with('message', 'Rol Asignado.');
     }
-
-    public function removeRole(Permission $permission, Role $role)
-    {
-        if ($permission->hasRole($role)) {
-            $permission->removeRole($role);
-            return back()->with('message', 'Rol removido.');
-        }
-        return back()->with('message', 'Este Rol no está asignado.');
-    }*/
 }

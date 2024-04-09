@@ -80,7 +80,7 @@
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                         </div>
                         @error('description')
-                            <span class="text-red-400 text-sm">{{ $message }}</span>
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                         </div>
                         @error('image_url')
-                            <span class="text-red-400 text-sm">{{ $message }}</span>
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="w-full md:w-1/2 px-3">
@@ -106,7 +106,7 @@
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                         </div>
                         @error('price')
-                            <span class="text-red-400 text-sm">{{ $message }}</span>
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                         </div>
                         @error('stock_quantity')
-                            <span class="text-red-400 text-sm">{{ $message }}</span>
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
