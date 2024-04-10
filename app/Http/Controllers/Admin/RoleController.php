@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use App\Http\Requests\RolesRequest;
 
 class RoleController extends Controller
 {
@@ -20,9 +21,9 @@ class RoleController extends Controller
         return view('admin.roles.create');
     }
 
-    public function store(Request $request)
+    public function store(RolesRequest $request)
     {
-        $validated = $request->validate(['name' => ['required', 'min:3']]);
+        $validated = $request->validate(['name' => ['required', 'min:3', 'max:255']]);
         Role::create($validated);
 
         return to_route('admin.roles.index')->with('message', 'Rol creado con éxito.');
@@ -39,7 +40,7 @@ class RoleController extends Controller
     return view('admin.roles.edit', compact('role', 'permissions'));
 }
 
-    public function update(Request $request, Role $role)
+    public function update(RolesRequest $request, Role $role)
     {
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         $role->update($validated);

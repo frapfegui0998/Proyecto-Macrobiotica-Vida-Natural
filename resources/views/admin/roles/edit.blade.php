@@ -1,7 +1,9 @@
 <x-admin-layout>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <!-- component -->
     <div class="flex items-center justify-center p-12">
+
 
         <!-- Author: FormBold Team -->
         <!-- Learn More: https://formbold.com -->
@@ -22,7 +24,7 @@
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
                         @error('name')
-                            <span class="text-red-400 text-sm">{{ $message }}</span>
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                         <!--  -->
 
