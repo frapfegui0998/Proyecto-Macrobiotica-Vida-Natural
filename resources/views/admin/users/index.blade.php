@@ -68,7 +68,8 @@
                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden mb-4">
                     <a href="{{ route('admin.users.create') }}">
                         <button type="button"
-                            class="group relative h-10 w-28 overflow-hidden rounded-2xl bg-gray-400 text-lg font-bold text-white btn btn-primary ml-4">
+                            class="group relative h-10 w-28 overflow-hidden rounded-2xl bg-gray-400 text-lg font-bold text-white btn btn-primary ml-0 mt-4">
+                            <!-- Ajusta el valor de ml según tus necesidades -->
                             Nuevo
                             <div
                                 class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
