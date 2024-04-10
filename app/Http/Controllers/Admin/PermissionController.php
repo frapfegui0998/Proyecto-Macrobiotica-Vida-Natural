@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use App\Http\Requests\PermissionsRequest;
 
 class PermissionController extends Controller
 {
@@ -20,9 +21,9 @@ class PermissionController extends Controller
         return view('admin.permissions.create');
     }
 
-    public function store(Request $request)
+    public function store(PermissionsRequest $request)
     {
-        $validated = $request->validate(['name' => ['required', 'min:3']]);
+        $validated = $request->validate(['name' => ['required', 'min:3', 'string', 'max:255']]);
         Permission::create($validated);
 
         return to_route('admin.permissions.index')->with('message', 'Permiso creado con éxito.');
@@ -34,7 +35,7 @@ class PermissionController extends Controller
         return view('admin.permissions.edit', compact('permission', 'roles'));
     }
 
-    public function update(Request $request, Permission $permission)
+    public function update(PermissionsRequest $request, Permission $permission)
     {
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         $permission->update($validated);
