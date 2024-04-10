@@ -49,7 +49,7 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left mb-2">
-                        <h2>Agregar permiso</h2>
+                        <h2 class="text-white">Agregar permiso</h2>
                     </div>
                 </div>
             </div>
@@ -64,10 +64,9 @@
                     <div class="w-full md:w-1/2">
                         <!-- Mantener el input en la mitad del ancho en dispositivos medianos y superiores -->
                         <div class="mb-2">
-                            <label for="name"
-                                class="py-2 mb-1 block text-base font-medium text-[#07074D] text-center">
+                            <label for="name" class="py-2 mb-1 block text-base font-medium text-white text-center">
                                 <!-- Centrar el texto -->
-                                Nombre de el permiso
+                                Nombre del permiso
                             </label>
                             <input type="text" name="name" placeholder="Permiso" value="{{ old('name') }}"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />

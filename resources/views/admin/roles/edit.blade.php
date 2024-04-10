@@ -16,7 +16,8 @@
                 <div class="-mx-3 flex flex-wrap py-5">
                     <div class="w-full px-3 sm:w-1/2">
                         <div class="mb-5">
-                            <label for="name" class="py-2 mb-3 block text-base font-medium text-[#07074D]">
+                            <label for="name"
+                                class="py-2 mb-3 block text-base font-medium text-[#07074D] text-white">
                                 Nuevo nombre del Rol
                             </label>
                             <input type="text" name="name" id="name" placeholder="Rol"
@@ -52,7 +53,7 @@
                 </div>
             </form>
 
-            <h2 class="pt-10 block text-base font-bold text-[#07074D]">Permisos del Rol</h2>
+            <h2 class="pt-10 block text-base font-bold text-[#07074D] text-white">Permisos del Rol</h2>
             @if ($role->permissions)
                 @foreach ($role->permissions as $role_permission)
                     <form method="POST"
@@ -69,7 +70,8 @@
                 <div class="-mx-3 flex flex-wrap py-3">
                     <div class="w-full px-3 sm:w-1/2">
                         <div class="mb-5">
-                            <label for="permission" class="py-2 mb-3 block text-base font-medium text-[#07074D]">
+                            <label for="permission"
+                                class="py-2 mb-3 block text-base font-medium text-[#07074D] text-white">
                                 Asignar Permiso
                             </label>
                             <select name="permission" id="permission"

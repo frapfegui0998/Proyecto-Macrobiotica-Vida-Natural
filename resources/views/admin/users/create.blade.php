@@ -22,24 +22,19 @@
             .form-group input {
                 width: 100%;
                 padding: 15px;
-                /* Increase padding for larger size */
                 font-size: 24px;
-                /* Increase font size for larger text */
             }
 
             .btn-primary {
                 background-color: #4267B2;
                 border: none;
                 padding: 15px 30px;
-                /* Increase padding for larger button */
                 font-size: 24px;
-                /* Increase font size for larger text */
                 color: #fff;
             }
 
             .btn-primary:hover {
                 background-color: #4f4f4f;
-                /* Darker green on hover */
             }
         </style>
     </head>
@@ -49,7 +44,7 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left mb-2">
-                        <h2>Agregar usuario</h2>
+                        <h2 class="text-white">Agregar usuario</h2>
                     </div>
                 </div>
             </div>
@@ -63,7 +58,7 @@
                 <div class="flex flex-wrap -mx-3 py-2">
                     <div class="w-full md:w-1/2 px-3">
                         <div class="mb-2">
-                            <label for="name" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                            <label for="name" class="py-2 mb-1 block text-base font-medium text-white">
                                 Nombre de usuario
                             </label>
                             <input type="text" name="name" placeholder="Nombre de usuario"
@@ -76,7 +71,7 @@
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <div class="mb-2">
-                            <label for="email" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                            <label for="email" class="py-2 mb-1 block text-base font-medium text-white">
                                 Correo electrónico
                             </label>
                             <input type="text" name="email" placeholder="Correo" value="{{ old('email') }}"
@@ -88,7 +83,7 @@
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <div class="mb-2">
-                            <label for="password" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                            <label for="password" class="py-2 mb-1 block text-base font-medium text-white">
                                 Contraseña
                             </label>
                             <input type="password" name="password" placeholder="Contraseña"
@@ -100,8 +95,7 @@
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <div class="mb-2">
-                            <label for="password_confirmation"
-                                class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                            <label for="password_confirmation" class="py-2 mb-1 block text-base font-medium text-white">
                                 Confirmar Contraseña
                             </label>
                             <input type="password" name="password_confirmation" placeholder="Contraseña"

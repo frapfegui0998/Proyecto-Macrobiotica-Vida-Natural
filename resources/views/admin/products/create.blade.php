@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left mb-2">
-                        <h2>Agregar producto</h2>
+                        <h2 class="text-white">Agregar producto</h2>
                     </div>
 
                 </div>
@@ -59,7 +59,7 @@
                 <div class="flex flex-wrap -mx-3 py-2">
                     <div class="w-full md:w-1/2 px-3">
                         <div class="mb-2">
-                            <label for="name" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                            <label for="name" class="py-2 mb-1 block text-base font-medium text-white">
                                 Nombre del producto
                             </label>
                             <input type="text" name="name" placeholder="Nombre del producto"
@@ -72,7 +72,7 @@
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <div class="mb-2">
-                            <label for="description" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                            <label for="description" class="py-2 mb-1 block text-base font-medium text-white">
                                 Descripción
                             </label>
                             <input type="text" name="description" placeholder="Descripción"
@@ -87,7 +87,7 @@
                 <div class="flex flex-wrap -mx-3 py-2">
                     <div class="w-full md:w-1/2 px-3">
                         <div class="mb-2">
-                            <label for="image_url" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                            <label for="image_url" class="py-2 mb-1 block text-base font-medium text-white">
                                 Imagen
                             </label>
                             <input type="text" name="image_url" placeholder="Imagen" value="{{ old('image_url') }}"
@@ -99,7 +99,7 @@
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <div class="mb-2">
-                            <label for="price" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                            <label for="price" class="py-2 mb-1 block text-base font-medium text-white">
                                 Precio
                             </label>
                             <input type="number" name="price" placeholder="Precio" value="{{ old('price') }}"
@@ -113,7 +113,7 @@
                 <div class="flex flex-wrap -mx-3 py-2">
                     <div class="w-full md:w-1/2 px-3">
                         <div class="mb-2">
-                            <label for="stock_quantity" class="py-2 mb-1 block text-base font-medium text-[#07074D]">
+                            <label for="stock_quantity" class="py-2 mb-1 block text-base font-medium text-white">
                                 Cantidad
                             </label>
                             <input type="text" name="stock_quantity" placeholder="Cantidad"

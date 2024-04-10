@@ -17,6 +17,16 @@
             width: 100%;
             padding: 15px;
             font-size: 24px;
+            color: #fff;
+            /* Cambiando el color del texto a blanco */
+        }
+
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            font-size: 24px;
+            color: #fff;
+            /* Cambiando el color del texto a blanco */
         }
 
         .btn-primary {
@@ -45,7 +55,8 @@
                     <div class="-mx-3 flex flex-wrap py-5">
                         <div class="w-full px-3 sm:w-1/2">
                             <div class="mb-5">
-                                <label for="name" class="py-2 mb-3 block text-base font-medium text-[#07074D]">
+                                <label for="name"
+                                    class="py-2 mb-3 block text-base font-medium text-[#07074D] text-white">
                                     Nombre del Producto
                                 </label>
                                 <input type="text" name="name" id="name" placeholder="Nombre del Producto"
@@ -58,7 +69,8 @@
                         </div>
                         <div class="w-full px-3 sm:w-1/2">
                             <div class="mb-5">
-                                <label for="description" class="py-2 mb-3 block text-base font-medium text-[#07074D]">
+                                <label for="description"
+                                    class="py-2 mb-3 block text-base font-medium text-[#07074D] text-white">
                                     Descripción del Producto
                                 </label>
                                 <textarea name="description" id="description" rows="4"
@@ -70,7 +82,8 @@
                         </div>
                         <div class="w-full px-3 sm:w-1/2">
                             <div class="mb-5">
-                                <label for="image_url" class="py-2 mb-3 block text-base font-medium text-[#07074D]">
+                                <label for="image_url"
+                                    class="py-2 mb-3 block text-base font-medium text-[#07074D] text-white">
                                     Imagen del Producto
                                 </label>
                                 <textarea name="image_url" id="image_url" rows="4"
@@ -82,7 +95,8 @@
                         </div>
                         <div class="w-full px-3 sm:w-1/2">
                             <div class="mb-5">
-                                <label for="price" class="py-2 mb-3 block text-base font-medium text-[#07074D]">
+                                <label for="price"
+                                    class="py-2 mb-3 block text-base font-medium text-[#07074D] text-white">
                                     Precio del Producto
                                 </label>
                                 <input type="text" name="price" id="price" placeholder="Precio del Producto"
@@ -96,7 +110,7 @@
                         <div class="w-full px-3 sm:w-1/2">
                             <div class="mb-5">
                                 <label for="stock_quantity"
-                                    class="py-2 mb-3 block text-base font-medium text-[#07074D]">
+                                    class="py-2 mb-3 block text-base font-medium text-[#07074D] text-white">
                                     Cantidad en Stock
                                 </label>
                                 <input type="text" name="stock_quantity" id="stock_quantity"

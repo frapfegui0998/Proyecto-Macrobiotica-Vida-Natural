@@ -6,12 +6,12 @@
         <!-- Author: FormBold Team -->
         <!-- Learn More: https://formbold.com -->
         <div class="mx-auto w-full max-w-[550px]">
-            <div>Nombre de Usuario: {{ $user->name }}</div>
-            <div>Correo electrónico: {{ $user->email }}</div>
+            <div class="text-white">Nombre de Usuario: {{ $user->name }}</div>
+            <div class="text-white">Correo electrónico: {{ $user->email }}</div>
 
             <!-- Roles -->
             <div>
-                <h2 class="pt-10 block text-base font-bold text-[#07074D]">Roles del Usuario</h2>
+                <h2 class="pt-10 block text-base font-bold text-white">Roles del Usuario</h2>
                 @if ($user->roles)
                     @foreach ($user->roles as $user_role)
                         <form method="POST"
@@ -61,7 +61,7 @@
                     <div class="-mx-3 flex flex-wrap py-3">
                         <div class="w-full px-3 sm:w-1/2">
                             <div class="mb-5">
-                                <label for="role" class="py-2 mb-3 block text-base font-medium text-[#07074D]">
+                                <label for="role" class="py-2 mb-3 block text-base font-medium text-white">
                                     Asignar Rol
                                 </label>
                                 <select name="role" id="role"
@@ -101,7 +101,7 @@
 
             <!-- Permisos -->
             <div>
-                <h2 class="pt-10 block text-base font-bold text-[#07074D]">Permisos del Usuario</h2>
+                <h2 class="pt-10 block text-base font-bold text-white">Permisos del Usuario</h2>
                 @if ($user->permissions)
                     @foreach ($user->permissions as $user_permission)
                         <form method="POST"
@@ -118,7 +118,7 @@
                     <div class="-mx-3 flex flex-wrap py-3">
                         <div class="w-full px-3 sm:w-1/2">
                             <div class="mb-5">
-                                <label for="permission" class="py-2 mb-3 block text-base font-medium text-[#07074D]">
+                                <label for="permission" class="py-2 mb-3 block text-base font-medium text-white">
                                     Asignar Permiso
                                 </label>
                                 <select name="permission" id="permission"

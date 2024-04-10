@@ -62,7 +62,7 @@
             @endif
             <div class="py-8">
                 <div>
-                    <h2 class="text-2xl font-semibold leading-tight mb-4">Usuarios</h2>
+                    <h2 class="text-2xl font-semibold leading-tight mb-4 text-white">Usuarios</h2>
                 </div>
 
                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden mb-4">

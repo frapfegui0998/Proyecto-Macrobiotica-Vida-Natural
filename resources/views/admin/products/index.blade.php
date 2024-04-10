@@ -68,7 +68,7 @@
             @endif
             <div class="py-8">
                 <div>
-                    <h2 class="text-2xl font-semibold leading-tight">Productos</h2>
+                    <h2 class="text-2xl font-semibold leading-tight mb-4 text-white">Productos</h2>
                 </div>
                 <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                     <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
