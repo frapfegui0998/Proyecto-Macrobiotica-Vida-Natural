@@ -1,4 +1,5 @@
 <x-admin-layout>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             background-color: #4267B2;
@@ -51,7 +52,7 @@
                                     value="{{ $product->name }}"
                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                 @error('name')
-                                    <span class="text-red-400 text-sm">{{ $message }}</span>
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
@@ -63,7 +64,7 @@
                                 <textarea name="description" id="description" rows="4"
                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">{{ $product->description }}</textarea>
                                 @error('description')
-                                    <span class="text-red-400 text-sm">{{ $message }}</span>
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
@@ -75,7 +76,7 @@
                                 <textarea name="image_url" id="image_url" rows="4"
                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">{{ $product->description }}</textarea>
                                 @error('image_url')
-                                    <span class="text-red-400 text-sm">{{ $message }}</span>
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
@@ -88,7 +89,7 @@
                                     value="{{ $product->price }}"
                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                 @error('price')
-                                    <span class="text-red-400 text-sm">{{ $message }}</span>
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
@@ -102,7 +103,7 @@
                                     placeholder="Cantidad en Stock" value="{{ $product->stock_quantity }}"
                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                 @error('stock_quantity')
-                                    <span class="text-red-400 text-sm">{{ $message }}</span>
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>

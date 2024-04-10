@@ -1,5 +1,5 @@
 <x-admin-layout>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- component -->
     <div class="flex items-center justify-center p-12">
 
@@ -22,7 +22,7 @@
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
                         @error('name')
-                            <span class="text-red-400 text-sm">{{ $message }}</span>
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                         <!--  -->
 
@@ -37,7 +37,7 @@
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
                         @error('email')
-                            <span class="text-red-400 text-sm">{{ $message }}</span>
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="w-full px-3 sm:w-1/2">
@@ -49,7 +49,7 @@
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
                         @error('password')
-                            <span class="text-red-400 text-sm">{{ $message }}</span>
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="w-full px-3 sm:w-1/2">
