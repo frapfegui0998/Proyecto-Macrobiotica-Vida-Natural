@@ -32,6 +32,17 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'El nombre del correo es requerido',
+            'email.string' => 'El nombre del correo debe ser en texto.',
+            'email.email' => 'El nombre del correo debe ser válido',
+            'password.required' => 'La contraseña es requerida',
+            'password.string' => 'La contraseña debe ser en texto',
+        ];
+    }
+
     /**
      * Attempt to authenticate the request's credentials.
      *

@@ -73,8 +73,9 @@
                                     class="py-2 mb-3 block text-base font-medium text-[#07074D] text-white">
                                     Descripción del Producto
                                 </label>
-                                <textarea name="description" id="description" rows="4"
-                                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">{{ $product->description }}</textarea>
+                                <input type="text" name="description" id="description" placeholder="Descripción"
+                                    value="{{ $product->description }}"
+                                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                 @error('description')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
@@ -86,8 +87,9 @@
                                     class="py-2 mb-3 block text-base font-medium text-[#07074D] text-white">
                                     Imagen del Producto
                                 </label>
-                                <textarea name="image_url" id="image_url" rows="4"
-                                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">{{ $product->description }}</textarea>
+                                <input type="text" name="image_url" id="image_url" placeholder="Imagen"
+                                    value="{{ $product->image_url }}"
+                                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                 @error('image_url')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
@@ -122,23 +124,23 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <a href="{{ route('admin.products.index') }}" class="px-4">
+                    <div class="flex justify-between">
+                        <a href="{{ route('admin.products.index') }}" class="px-3">
                             <button type="button"
-                                class="group relative h-10 w-28 overflow-hidden rounded-2xl text-lg font-bold text-white"
+                                class="group relative h-10 w-28 overflow-hidden rounded-md text-lg font-bold text-white"
                                 style="background-color: #4267B2">
                                 Regresar
                                 <div
-                                    class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
+                                    class="absolute inset-0 h-full w-full scale-0 rounded-md transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
                                 </div>
                             </button>
                         </a>
                         <button type="submit"
-                            class="group relative h-10 w-28 overflow-hidden rounded-2xl text-lg font-bold text-white"
+                            class="group relative h-10 w-28 overflow-hidden rounded-md text-lg font-bold text-white"
                             style="background-color: #4267B2">
                             Editar
                             <div
-                                class="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
+                                class="absolute inset-0 h-full w-full scale-0 rounded-md transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
                             </div>
                         </button>
                     </div>

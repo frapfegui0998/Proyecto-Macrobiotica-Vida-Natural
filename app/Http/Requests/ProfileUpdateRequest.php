@@ -20,4 +20,14 @@ class ProfileUpdateRequest extends FormRequest
             'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'email.email' => 'El correo debe ser válido',
+            'email.max' => 'El nombre del correo puede contener hasta 255 caracteres',
+            'name.string' => 'El nombre de usuario es requerido',
+            'name.max' => 'El nombre de usuario puede contener hasta 255 caracteres',
+        ];
+    }
 }
