@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -73,32 +74,31 @@ class UserController extends Controller
         return view ('admin.users.create');
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'nullable', 'string', 'min:8', 'confirmed'],
+    public function store(UserRequest $request)
+{
+    $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'email', 'max:255', 'unique:users,email:'.User::class],
+        'password' => ['required','string', 'min:8','confirmed'],
+    ]);
 
-        ]
-           );
+    $validatedData = $request->validated();
+    User::create($validatedData);
 
-        User::create($request->post());
-        /*return redirect()->route ('admin.users.index')->with('success','Usuario creado con éxito.');*/
-        return to_route('admin.users.index')->with('message', 'Usuario creado con éxito.');
-    }
+    return redirect()->route('admin.users.index')->with('message', 'Usuario creado con éxito.');
+}
 
     public function edit(User $user)
     {
         return view('admin.users.edit',compact('user'));
     }
 
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
 {
     $request->validate([
         'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
-        'password' => ['required', 'nullable', 'string', 'min:8', 'confirmed'],
+        'email' => ['required', 'email', 'max:255', 'unique:users,email,'.$user->id],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
     ]);
 
     $user->update($request->except('password_confirmation'));

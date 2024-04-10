@@ -82,7 +82,7 @@
                             <input type="text" name="email" placeholder="Correo" value="{{ old('email') }}"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                             @error('email')
-                                <span class="text-red-400 text-sm">{{ $message }}</span>
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                             <input type="password" name="password" placeholder="Contraseña"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
                             @error('password')
-                                <span class="text-red-400 text-sm">{{ $message }}</span>
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
@@ -104,8 +104,11 @@
                                 class="py-2 mb-1 block text-base font-medium text-[#07074D]">
                                 Confirmar Contraseña
                             </label>
-                            <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña"
+                            <input type="password" name="password_confirmation" placeholder="Contraseña"
                                 class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-xl font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-1" />
+                            @error('password_confirmation')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                 </div>
