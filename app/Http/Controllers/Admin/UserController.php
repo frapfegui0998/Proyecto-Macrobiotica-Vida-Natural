@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use App\Http\Requests\UserRequest;
+use Exception;
 
 class UserController extends Controller
 {
@@ -28,36 +29,44 @@ class UserController extends Controller
     //Roles
     public function assignRole(Request $request, User $user)
     {
-        if ($user->hasRole($request->role)) {
-            return back()->with('message', 'El Rol ya existe.');
+        try {
+            if ($user->hasRole($request->role)) {
+                return back()->with('message', 'El Rol ya existe.');
+            }
+            $user->assignRole($request->role);
+            return back()->with('message', 'Rol Asignado.');
+        } catch (Exception $e) {
+            return back()->with('error', 'Ha ocurrido un error: ' . $e->getMessage());
         }
-        $user->assignRole($request->role);
-        return back()->with('message', 'Rol Asignado.');
     }
 
     public function removeRole(User $user, Role $role)
-{
-    // Verificar si el usuario tiene el rol de administrador y si es así, no permitir su eliminación
-    if ($role->name === 'admin') {
-        return back()->with('deleted', 'El rol de administrador no puede ser removido.');
-    }
+    {
+        // Verificar si el usuario tiene el rol de administrador y si es así, no permitir su eliminación
+        if ($role->name === 'admin') {
+            return back()->with('deleted', 'El rol de administrador no puede ser removido.');
+        }
 
-    if ($user->hasRole($role)) {
-        $user->removeRole($role);
-        return back()->with('deleted', 'Rol removido.');
-    }
+        if ($user->hasRole($role)) {
+            $user->removeRole($role);
+            return back()->with('deleted', 'Rol removido.');
+        }
 
-    return back()->with('deleted', 'Este Rol no está asignado.');
-}
+        return back()->with('deleted', 'Este Rol no está asignado.');
+    }
 
     //Permissions
     public function givePermission(Request $request, User $user)
     {
-        if ($user->hasPermissionTo($request->permission)) {
-            return back()->with('message', 'El permiso existe.');
+        try {
+            if ($user->hasPermissionTo($request->permission)) {
+                return back()->with('message', 'El permiso existe.');
+            }
+            $user->givePermissionTo($request->permission);
+            return back()->with('message', 'Permiso añadido.');
+        } catch (Exception $e) {
+            return back()->with('error', 'Ha ocurrido un error: ' . $e->getMessage());
         }
-        $user->givePermissionTo($request->permission);
-        return back()->with('message', 'Permiso añadido.');
     }
 
     public function revokePermission(User $user, Permission $permission)
@@ -71,40 +80,40 @@ class UserController extends Controller
 
     public function create()
     {
-        return view ('admin.users.create');
+        return view('admin.users.create');
     }
 
     public function store(UserRequest $request)
-{
-    $request->validate([
-        'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'email', 'max:255', 'unique:users'],
-        'password' => ['required','string', 'min:8','confirmed'],
-    ]);
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
 
-    $validatedData = $request->validated();
-    User::create($validatedData);
+        $validatedData = $request->validated();
+        User::create($validatedData);
 
-    return redirect()->route('admin.users.index')->with('message', 'Usuario creado con éxito.');
-}
+        return redirect()->route('admin.users.index')->with('message', 'Usuario creado con éxito.');
+    }
 
     public function edit(User $user)
     {
-        return view('admin.users.edit',compact('user'));
+        return view('admin.users.edit', compact('user'));
     }
 
     public function update(UserRequest $request, User $user)
-{
-    $request->validate([
-        'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'email', 'max:255', 'unique:users'],
-        'password' => ['required', 'string', 'min:8', 'confirmed'],
-    ]);
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
 
-    $user->update($request->except('password_confirmation'));
+        $user->update($request->except('password_confirmation'));
 
-    return redirect()->route('admin.users.index')->with('updated', 'Usuario actualizado con éxito');
-}
+        return redirect()->route('admin.users.index')->with('updated', 'Usuario actualizado con éxito');
+    }
 
     public function destroy(User $user)
     {

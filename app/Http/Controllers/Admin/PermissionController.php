@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use App\Http\Requests\PermissionsRequest;
+use App\Models\LogError;
 
 class PermissionController extends Controller
 {
@@ -23,10 +24,34 @@ class PermissionController extends Controller
 
     public function store(PermissionsRequest $request)
     {
-        $validated = $request->validate(['name' => ['required', 'min:3', 'string', 'max:255']]);
-        Permission::create($validated);
+        try {
+            $validated = $request->validate(['name' => ['required', 'min:3', 'string', 'max:255']]);
+            Permission::create($validated);
 
-        return to_route('admin.permissions.index')->with('message', 'Permiso creado con éxito.');
+            Permission::create($request->validate([]));
+
+            return redirect()->route('admin.permissions.index')->with('message', 'Permiso creado con éxito.');
+        } catch (\Exception $e) {
+            $errorMessage = $e->getMessage();
+
+            LogError::create([
+                'message' => 'Error al insertar un permiso',
+                'user_email' => auth()->user()->email,
+                'user_name' => auth()->user()->name,
+                'exception' => $errorMessage,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+
+            // DB::table('log_errors')->insert([
+            //     'message' => $errorMessage,
+            //     'created_at' => now(),
+            //     'updated_at' => now(),
+            // ]);
+
+            // Redirect back with error message
+            return redirect()->back()->withErrors(['error' => 'Ha ocurrido un error. Por favor, inténtalo de nuevo más tarde.']);
+        }
     }
 
     public function edit(Permission $permission)

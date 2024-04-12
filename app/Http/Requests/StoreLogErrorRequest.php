@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ForgotPasswordRequest extends FormRequest
+class StoreLogErrorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,17 +22,7 @@ class ForgotPasswordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email', 'max:255'],
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'email.required' => 'El el correo es requerido',
-            'email.string' => 'El correo debe ser en texto.',
-            'email.email' => 'El correo debe ser válido',
-            'email.max' => 'El correo puede contener hasta 255 caracteres',
+            //
         ];
     }
 }
