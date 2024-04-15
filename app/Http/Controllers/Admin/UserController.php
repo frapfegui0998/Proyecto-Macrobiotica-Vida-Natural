@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use App\Http\Requests\UserRequest;
+use App\Models\LogError;
 use Exception;
 
 class UserController extends Controller
@@ -36,24 +37,51 @@ class UserController extends Controller
             $user->assignRole($request->role);
             return back()->with('message', 'Rol Asignado.');
         } catch (Exception $e) {
-            return back()->with('error', 'Ha ocurrido un error: ' . $e->getMessage());
+
+            $errorMessage = $e->getMessage();
+
+            LogError::create([
+                'message' => 'Error al asignar un rol',
+                'user_email' => auth()->user()->email,
+                'user_name' => auth()->user()->name,
+                'exception' => $errorMessage,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return back()->with('error', 'Ha ocurrido un error');
         }
     }
 
     public function removeRole(User $user, Role $role)
     {
-        // Verificar si el usuario tiene el rol de administrador y si es así, no permitir su eliminación
-        if ($role->name === 'admin') {
-            return back()->with('deleted', 'El rol de administrador no puede ser removido.');
-        }
+        try {
+            // Verificar si el usuario tiene el rol de administrador y si es así, no permitir su eliminación
+            if ($role->name === 'admin') {
+                return back()->with('deleted', 'El rol de administrador no puede ser removido.');
+            }
 
-        if ($user->hasRole($role)) {
-            $user->removeRole($role);
-            return back()->with('deleted', 'Rol removido.');
-        }
+            if ($user->hasRole($role)) {
+                $user->removeRole($role);
+                return back()->with('deleted', 'Rol removido.');
+            }
 
-        return back()->with('deleted', 'Este Rol no está asignado.');
+            return back()->with('deleted', 'Este Rol no está asignado.');
+        } catch (Exception $e) {
+
+            $errorMessage = $e->getMessage();
+
+            LogError::create([
+                'message' => 'Error al remover un rol',
+                'user_email' => auth()->user()->email,
+                'user_name' => auth()->user()->name,
+                'exception' => $errorMessage,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return back()->with('error', 'Ha ocurrido un error');
+        }
     }
+
 
     //Permissions
     public function givePermission(Request $request, User $user)
@@ -65,7 +93,17 @@ class UserController extends Controller
             $user->givePermissionTo($request->permission);
             return back()->with('message', 'Permiso añadido.');
         } catch (Exception $e) {
-            return back()->with('error', 'Ha ocurrido un error: ' . $e->getMessage());
+            $errorMessage = $e->getMessage();
+
+            LogError::create([
+                'message' => 'Error al asignar un permiso',
+                'user_email' => auth()->user()->email,
+                'user_name' => auth()->user()->name,
+                'exception' => $errorMessage,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return back()->with('error', 'Ha ocurrido un error');
         }
     }
 
@@ -77,7 +115,18 @@ class UserController extends Controller
                 return back()->with('deleted', 'Permiso revocado.');
             }
         } catch (Exception $e) {
-            return back()->with('error', 'Ha ocurrido un error:' . $e->getMessage());
+
+            $errorMessage = $e->getMessage();
+
+            LogError::create([
+                'message' => 'Error al revocar un permiso',
+                'user_email' => auth()->user()->email,
+                'user_name' => auth()->user()->name,
+                'exception' => $errorMessage,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return back()->with('error', 'Ha ocurrido un error');
         }
     }
 
@@ -88,16 +137,31 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        try {
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ]);
 
-        $validatedData = $request->validated();
-        User::create($validatedData);
+            $validatedData = $request->validated();
+            User::create($validatedData);
 
-        return redirect()->route('admin.users.index')->with('message', 'Usuario creado con éxito.');
+            return redirect()->route('admin.users.index')->with('message', 'Usuario creado con éxito.');
+        } catch (Exception $e) {
+
+            $errorMessage = $e->getMessage();
+
+            LogError::create([
+                'message' => 'Error al insertar un usuario',
+                'user_email' => auth()->user()->email,
+                'user_name' => auth()->user()->name,
+                'exception' => $errorMessage,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return back()->with('error', 'Ha ocurrido un error');
+        }
     }
 
     public function edit(User $user)
@@ -107,23 +171,53 @@ class UserController extends Controller
 
     public function update(UserRequest $request, User $user)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        try {
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ]);
 
-        $user->update($request->except('password_confirmation'));
+            $user->update($request->except('password_confirmation'));
 
-        return redirect()->route('admin.users.index')->with('updated', 'Usuario actualizado con éxito');
+            return redirect()->route('admin.users.index')->with('updated', 'Usuario actualizado con éxito');
+        } catch (Exception $e) {
+            $errorMessage = $e->getMessage();
+
+            LogError::create([
+                'message' => 'Error al actualizar un usuario',
+                'user_email' => auth()->user()->email,
+                'user_name' => auth()->user()->name,
+                'exception' => $errorMessage,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return back()->with('error', 'Ha ocurrido un error');
+        }
     }
+
 
     public function destroy(User $user)
     {
-        if ($user->hasRole('admin')) {
-            return back()->with('deleted', 'No puedes eliminar un Administrador');
+        try {
+            if ($user->hasRole('admin')) {
+                return back()->with('deleted', 'No puedes eliminar un Administrador');
+            }
+
+            $user->delete();
+            return back()->with('deleted', 'Usuario Eliminado con éxito');
+        } catch (Exception $e) {
+            $errorMessage = $e->getMessage();
+
+            LogError::create([
+                'message' => 'Error al eliminar un usuario',
+                'user_email' => auth()->user()->email,
+                'user_name' => auth()->user()->name,
+                'exception' => $errorMessage,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return back()->with('error', 'Ha ocurrido un error');
         }
-        $user->delete();
-        return back()->with('deleted', 'Usuario Eliminado con éxito');
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use App\Http\Requests\RolesRequest;
+use App\Models\LogError;
 use Exception;
 
 class RoleController extends Controller
@@ -68,7 +69,18 @@ class RoleController extends Controller
             $role->givePermissionTo($request->permission);
             return back()->with('message', 'Permiso añadido.');
         } catch (Exception $e) {
-            return back()->with('error', 'Ha ocurrido un error: ' . $e->getMessage());
+
+            $errorMessage = $e->getMessage();
+
+            LogError::create([
+                'message' => 'Error al asignar un permiso',
+                'user_email' => auth()->user()->email,
+                'user_name' => auth()->user()->name,
+                'exception' => $errorMessage,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return back()->with('error', 'Ha ocurrido un error');
         }
     }
 
@@ -80,7 +92,18 @@ class RoleController extends Controller
                 return back()->with('deleted', 'Permiso revocado.');
             }
         } catch (Exception $e) {
-            return back()->with('error', 'Ha ocurrido un error:' . $e->getMessage());
+
+            $errorMessage = $e->getMessage();
+
+            LogError::create([
+                'message' => 'Error al revocar un permiso',
+                'user_email' => auth()->user()->email,
+                'user_name' => auth()->user()->name,
+                'exception' => $errorMessage,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return back()->with('error', 'Ha ocurrido un error');
         }
     }
 }
