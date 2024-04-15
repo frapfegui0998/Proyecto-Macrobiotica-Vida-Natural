@@ -28,7 +28,7 @@ class PermissionController extends Controller
             $validated = $request->validate(['name' => ['required', 'min:3', 'string', 'max:255']]);
             Permission::create($validated);
 
-            Permission::create($request->validate([]));
+            //Permission::create($request->validate([]));
 
             return redirect()->route('admin.permissions.index')->with('message', 'Permiso creado con éxito.');
         } catch (\Exception $e) {

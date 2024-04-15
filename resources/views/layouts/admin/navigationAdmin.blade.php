@@ -32,6 +32,15 @@
             </svg>
         </button>
     </div>
+    <a class="menu-item" href="{{ route('dashboard') }}"
+        style="background-color: #5E4528; color: white; font-weight: bold; padding: 0.5rem 1rem; border-radius: 0.25rem;
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */"
+        onmouseover="this.style.backgroundColor='#7E5F3D'" // Color al pasar el ratón
+        onmouseout="this.style.backgroundColor='#5E4528'"> <!-- Color al quitar el ratón -->
+        <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Página principal
+    </a>
+
+
     <nav :class="{ 'block': open, 'hidden': !open }" class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto"
         style="background-color: #f0f2f5;">
         <a class="menu-item {{ request()->is('admin') ? 'bg-blue-200' : 'bg-transparent' }}"

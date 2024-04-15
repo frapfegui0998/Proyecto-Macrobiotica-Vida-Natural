@@ -71,11 +71,14 @@ class UserController extends Controller
 
     public function revokePermission(User $user, Permission $permission)
     {
-        if ($user->hasPermissionTo($permission)) {
-            $user->revokePermissionTo($permission);
-            return back()->with('deleted', 'Permiso revocado.');
+        try {
+            if ($user->hasPermissionTo($permission)) {
+                $user->revokePermissionTo($permission);
+                return back()->with('deleted', 'Permiso revocado.');
+            }
+        } catch (Exception $e) {
+            return back()->with('error', 'Ha ocurrido un error:' . $e->getMessage());
         }
-        return back()->with('deleted', 'El permiso no existe.');
     }
 
     public function create()

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use App\Http\Requests\RolesRequest;
+use Exception;
 
 class RoleController extends Controller
 {
@@ -30,15 +31,15 @@ class RoleController extends Controller
     }
 
     public function edit(Role $role)
-{
-    // Verificar si el rol es "admin"
-    if ($role->name === 'admin') {
-        return redirect()->back()->with('deleted', 'No puedes editar el rol de administrador.');
-    }
+    {
+        // Verificar si el rol es "admin"
+        if ($role->name === 'admin') {
+            return redirect()->back()->with('deleted', 'No puedes editar el rol de administrador.');
+        }
 
-    $permissions = Permission::all();
-    return view('admin.roles.edit', compact('role', 'permissions'));
-}
+        $permissions = Permission::all();
+        return view('admin.roles.edit', compact('role', 'permissions'));
+    }
 
     public function update(RolesRequest $request, Role $role)
     {
@@ -49,30 +50,37 @@ class RoleController extends Controller
     }
 
     public function destroy(Role $role)
-{
-    if ($role->name === 'admin') {
-        return back()->with('deleted', 'No puedes eliminar el rol de administrador.');
-    }
+    {
+        if ($role->name === 'admin') {
+            return back()->with('deleted', 'No puedes eliminar el rol de administrador.');
+        }
 
-    $role->delete();
-    return back()->with('deleted', 'Rol eliminado con éxito.');
-}
+        $role->delete();
+        return back()->with('deleted', 'Rol eliminado con éxito.');
+    }
 
     public function givePermission(Request $request, Role $role)
     {
-        if ($role->hasPermissionTo($request->permission)) {
-            return back()->with('message', 'El permiso existe.');
+        try {
+            if ($role->hasPermissionTo($request->permission)) {
+                return back()->with('message', 'El permiso existe.');
+            }
+            $role->givePermissionTo($request->permission);
+            return back()->with('message', 'Permiso añadido.');
+        } catch (Exception $e) {
+            return back()->with('error', 'Ha ocurrido un error: ' . $e->getMessage());
         }
-        $role->givePermissionTo($request->permission);
-        return back()->with('message', 'Permiso añadido.');
     }
 
     public function revokePermission(Role $role, Permission $permission)
     {
-        if ($role->hasPermissionTo($permission)) {
-            $role->revokePermissionTo($permission);
-            return back()->with('message', 'Permiso revocado.');
+        try {
+            if ($role->hasPermissionTo($permission)) {
+                $role->revokePermissionTo($permission);
+                return back()->with('deleted', 'Permiso revocado.');
+            }
+        } catch (Exception $e) {
+            return back()->with('error', 'Ha ocurrido un error:' . $e->getMessage());
         }
-        return back()->with('deleted', 'El permiso no existe.');
     }
 }

@@ -47,6 +47,10 @@ Route::get('/dashboard', function () {
 //Admin
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('index');
+    //Volver a la vista cliente
+    //Route::get('/', function () {
+    //   return view('paginaPrincipal');
+    //});
     //Roles
     Route::resource('/roles', RoleController::class);
     //
@@ -86,4 +90,4 @@ Route::middleware('auth')->group(function () {
 //Buscar Productos
 Route::get('/productos', [ProductController::class, 'index'])->name('user.index');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
