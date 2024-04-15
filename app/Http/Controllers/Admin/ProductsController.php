@@ -28,24 +28,6 @@ class ProductsController extends Controller
 
     public function store(ProductRequest $request)
     {
-        $request->validate(
-            [
-                'name' => ['required', 'string', 'max:255'],
-                'description' => ['string', 'max:255'],
-                'price' => ['required', 'numeric'],
-                'stock_quantity' => ['required', 'numeric'],
-                'image_url' => ['required', 'string', 'max:255'],
-            ]
-        );
-
-        $validatedData = $request->validated();
-
-        Products::create($validatedData);
-        return to_route('admin.products.index')->with('message', 'Producto creado con éxito.');
-    }
-
-    public function story(ProductRequest $request)
-    {
         try {
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],

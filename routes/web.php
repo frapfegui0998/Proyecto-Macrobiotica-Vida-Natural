@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\User\ProductController;
 use App\Http\Controllers\Correo\CorreoController;
+use App\Http\Controllers\Admin\LogErrorController;
 
 
 /*
@@ -71,6 +72,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::delete('/users/{user}/permissions/{permission}', [UserController::class, 'revokePermission'])->name('users.permissions.revoke');
     //Products
     Route::resource('/products', ProductsController::class);
+    //Exceptions
+    Route::resource('/logError', LogErrorController::class);
+    Route::get('/logError/{logError}', [LogErrorController::class, 'show'])->name('logError.show');
 });
 
 //Correo petición de productos

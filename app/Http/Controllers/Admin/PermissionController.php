@@ -32,7 +32,7 @@ class PermissionController extends Controller
             //Permission::create($request->validate([]));
 
             return redirect()->route('admin.permissions.index')->with('message', 'Permiso creado con éxito.');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $errorMessage = $e->getMessage();
 
             LogError::create([
