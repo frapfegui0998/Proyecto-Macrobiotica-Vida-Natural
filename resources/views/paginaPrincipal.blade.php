@@ -20,13 +20,12 @@
         }
 
         .carousel-container {
-            max-width: 100%; 
+            max-width: 100%;
             margin-top: 80px;
         }
-
     </style>
 
-</head>    
+</head>
 
 <header class="font-sans antialiased">
     @include('layouts.navigationPaginaPrincipal')

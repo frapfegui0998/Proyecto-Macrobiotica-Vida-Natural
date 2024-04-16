@@ -14,8 +14,8 @@
         .navbar-brand {
             color: #FFFFFF;
             /* Color amarillo */
-            font-size: 24px;
-            /* Tamaño de fuente más grande */
+            font-size: 20px;
+            /* Tamaño de fuente ajustado */
             font-weight: bold;
             /* Negrita */
         }
@@ -109,7 +109,7 @@
                     @else
                         <!-- Botón de login -->
                         <li><a class="nav-link" href="{{ url('/login') }}"><i class="fas fa-user"></i>
-                                <span>Login</span></a></li>
+                                <span>Iniciar sesión</span></a></li>
                     @endauth
                 </ul>
             </div>

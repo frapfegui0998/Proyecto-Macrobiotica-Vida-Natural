@@ -27,6 +27,27 @@
             text-align: left;
         }
 
+        /* Establece el espaciado entre los botones */
+        .green-border-button-container {
+            margin-bottom: 20px;
+            /* Ajusta el espaciado entre el botón de registrarse y el botón de regresar */
+        }
+
+        /* Ajusta el tamaño del botón de regresar para que sea igual al de iniciar sesión y registrarse */
+        .back-button {
+            width: 100%;
+            /* Ancho al 100% del contenedor */
+            padding: 10px 20px;
+            /* Mantén el padding igual que los otros botones */
+            font-size: 15px;
+            /* Mantén el tamaño de fuente igual que los otros botones */
+            margin: 0;
+            /* Elimina cualquier margen predeterminado */
+            box-sizing: border-box;
+            /* Incluye el padding y el borde en el ancho total */
+        }
+
+
         .logo {
             width: 100px;
             height: 100px;
@@ -58,9 +79,7 @@
             cursor: pointer;
             width: 100%;
             margin-top: 20px;
-            /* Espacio superior */
             margin-bottom: 20px;
-            /* Espacio inferior */
             font-size: 15px;
         }
 
@@ -72,33 +91,41 @@
             width: 86%;
             display: inline-block;
             padding: 10px 20px;
-            /* Ajusta el espaciado según tus necesidades */
             background-color: white;
-            /* Relleno blanco */
             border: 2px solid green;
-            /* Borde verde */
             color: green;
-            /* Color del texto */
             text-decoration: none;
-            /* Quita la subraya por defecto de los enlaces */
             border-radius: 4px;
-            /* Borde redondeado (ajustado para que sea similar al botón original) */
             transition: background-color 0.2s, color 0.2s;
-            /* Efecto de transición al pasar el ratón */
             font-size: 15px;
-            /* Tamaño de fuente igual al botón original */
             text-align: center;
         }
 
         .green-border-button:hover {
             background-color: green;
-            /* Cambia el color de fondo al pasar el ratón */
             color: rgba(255, 255, 255, 0.7);
-            /* Cambia el color del texto al pasar el ratón */
         }
 
         .forgot-password-link {
             font-size: 13px;
+        }
+
+        .back-button {
+            display: block;
+            background-color: #808080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #666666;
         }
     </style>
 </head>
@@ -150,17 +177,7 @@
                     </a>
                 @endif
             </div>
-
-
-            <!-- Remember Me
-                    <div>
-                        <label for="remember_me" class="inline-flex items-center">
-                            <input id="remember_me" type="checkbox" name="remember">
-                            <span>{{ __('Recuérdame') }}</span>
-                        </label>
-                    </div>
-                    -->
-
+            <a href="{{ url('/') }}" class="back-button">Regresar a página principal</a>
         </form>
 
 </body>

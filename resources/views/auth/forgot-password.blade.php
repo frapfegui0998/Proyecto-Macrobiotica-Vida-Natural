@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse - Macrobiótica</title>
+    <title>Recuperar Contraseña - Macrobiótica</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,6 +21,8 @@
         .mb-4.text-sm.text-gray-600 {
             margin-bottom: 20px;
             /* Agrega un margen inferior para separar de la sección siguiente */
+            text-align: center;
+            /* Centra el texto */
         }
 
         .login-container {
@@ -47,7 +49,8 @@
         }
 
         input {
-            width: 90%;
+            width: calc(100% - 40px);
+            /* Calcula el ancho restando el padding horizontal del input */
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
@@ -105,6 +108,26 @@
         .forgot-password-link {
             font-size: 13px;
         }
+
+        .back-button {
+            display: block;
+            background-color: #808080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            margin-bottom: 20px;
+            /* Ajustamos el espacio entre el botón "Regresar" y el botón anterior */
+            text-decoration: none;
+            width: calc(100% - 40px);
+            /* Ancho igual al input */
+        }
+
+        .back-button:hover {
+            background-color: #666666;
+        }
     </style>
 </head>
 
@@ -112,7 +135,6 @@
     <div class="login-container">
         <div class="logo">
             <img src="{{ asset('images/logo.jpg') }}" alt="Mi Imagen">
-
         </div>
         <div class="mb-4 text-sm text-gray-600">
             {{ __('¿Olvidaste tu contraseña?') }}
@@ -126,7 +148,7 @@
 
             <!-- Email Address -->
             <div>
-                <x-input-label for="email" :value="__('Correo Electronico')" />
+                <x-input-label for="email" :value="__('Correo Electrónico')" />
                 <x-text-input id="email" class="block mt-1 w-full" name="email" :value="old('email')" autofocus />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
@@ -136,7 +158,11 @@
                     {{ __('Enviar correo con link de recuperación') }}
                 </x-primary-button>
             </div>
+
+            <!-- Back Button -->
+            <a href="{{ route('login') }}" class="back-button">Regresar a inicio de sesión</a>
         </form>
+    </div>
 </body>
 
 </html>
