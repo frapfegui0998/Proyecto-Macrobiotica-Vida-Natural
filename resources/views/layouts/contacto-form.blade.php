@@ -54,7 +54,7 @@
 <body>
     <div class="container-form">
         <h2>Contáctanos</h2>
-        <form method="POST" action="{{ route('enviar.correo') }}">
+        <form id="contact-form" method="POST" action="{{ route('enviar.correo') }}">
             @csrf
             <div class="form-group">
                 <label for="fname">Nombre</label>
@@ -68,17 +68,25 @@
                 <label for="subject">Mensaje</label>
                 <textarea id="subject" name="subject" placeholder="Escribe algo.." style="height:200px"></textarea>
             </div>
-            <button type="submit" class="btn btn-default">Enviar</button>
-            <script>
-                function smtp() {
-                    alert("Mensaje enviado con éxito!");
-                    document.getElementById("fname").values = "";
-                }
-            </script>
+            <button type="button" onclick="validateAndSubmit()">Enviar</button>
         </form>
-
     </div>
 
+    <script>
+        function validateAndSubmit() {
+            // Aquí verificarías si el usuario está logueado
+            var isLoggedIn = false; // Simulación, debes implementar la lógica de autenticación
+
+            if (isLoggedIn) {
+                // Si el usuario está logueado, envía el formulario
+                document.getElementById("contact-form").submit();
+            } else {
+                // Si el usuario no está logueado, redirige al login
+                alert("Debes estar logueado para solicitar productos. Redirigiendo al inicio de sesión...");
+                window.location.href = "{{ route('login') }}"; // Reemplaza 'login' con la ruta real de tu página de login
+            }
+        }
+    </script>
 </body>
 
 </html>
