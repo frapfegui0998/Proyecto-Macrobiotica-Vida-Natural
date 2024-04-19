@@ -48,6 +48,31 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         }
     </style>
+    <style>
+        /* Estilo para el título */
+        .navbar-brand {
+            color: #FFFFFF;
+            /* Color amarillo */
+            font-size: 20px;
+            /* Tamaño de fuente ajustado */
+            font-weight: bold;
+            /* Negrita */
+        }
+
+        /* Estilo para los elementos del menú */
+        .navbar-nav li a {
+            color: white;
+            transition: background-color 0.3s, border-radius 0.3s;
+        }
+
+        /* Hover para los elementos del menú */
+        .navbar-nav li a:hover {
+            background-color: #24E7D5;
+            /* Verde */
+            border-radius: 50px;
+            /* Bordes curveados */
+        }
+    </style>
 </head>
 
 <header class="font-sans antialiased">

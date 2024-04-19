@@ -20,7 +20,7 @@
         }
     </style>
 
-</head>    
+</head>
 
 <header class="font-sans antialiased">
     @include('layouts.navigationPaginaPrincipal')
@@ -28,7 +28,32 @@
 
 <body>
     <div class="container mt-2">
-            @include('layouts.contacto-form')
+        <style>
+            /* Estilo para el título */
+            .navbar-brand {
+                color: #FFFFFF;
+                /* Color amarillo */
+                font-size: 20px;
+                /* Tamaño de fuente ajustado */
+                font-weight: bold;
+                /* Negrita */
+            }
+
+            /* Estilo para los elementos del menú */
+            .navbar-nav li a {
+                color: white;
+                transition: background-color 0.3s, border-radius 0.3s;
+            }
+
+            /* Hover para los elementos del menú */
+            .navbar-nav li a:hover {
+                background-color: #24E7D5;
+                /* Verde */
+                border-radius: 50px;
+                /* Bordes curveados */
+            }
+        </style>
+        @include('layouts.contacto-form')
     </div>
 
 </body>

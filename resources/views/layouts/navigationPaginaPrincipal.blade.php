@@ -6,9 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Macrobiotica Vida Natural</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-    
+
 </head>
 
 <!--Start of Tawk.to Script-->
@@ -27,17 +28,27 @@
 </script>
 
 <style>
-    .navbar-nav > li{
-        margin-left:10px;
-        margin-right:10px;
+    .navbar-nav>li {
+        margin-left: 10px;
+        margin-right: 10px;
         font-size: 15.4px;
+        transition: background-color 0.3s, border-radius 0.3s;
+    }
+
+    .navbar-nav li a:hover {
+        background-color: #24E7D5;
+        /* Verde */
+        border-radius: 50px;
+        /* Bordes curveados */
     }
 </style>
+
 <body>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand href="/">Macrobiótica Vida Natural</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars" style="color:#fff; font-size:25px;"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -63,7 +74,8 @@
                         </li>
                     @else
                         <!-- Botón de login -->
-                        <li><a class="nav-link" href="{{ url('/login') }}"><i class="fas fa-user" style="padding-right: 5px;"></i>
+                        <li><a class="nav-link" href="{{ url('/login') }}"><i class="fas fa-user"
+                                    style="padding-right: 5px;"></i>
                                 <span> Iniciar sesión</span></a></li>
                     @endauth
                 </ul>
@@ -71,8 +83,10 @@
         </div>
     </nav>
 </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/56eb74c3d5.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+</script>
+<script src="https://kit.fontawesome.com/56eb74c3d5.js" crossorigin="anonymous"></script>
 
 
 </html>
