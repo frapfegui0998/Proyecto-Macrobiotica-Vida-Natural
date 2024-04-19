@@ -5,28 +5,31 @@ namespace App\Http\Controllers\Correo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\FormularioEnviado;
+use App\Mail\EnviarCorreo;
 
 class CorreoController extends Controller
 {
+
     public function enviarCorreo(Request $request)
     {
-    try {
-        // Obtiene todos los datos del formulario
-        $datos = $request->all();
+        // Validar los datos del formulario si es necesario
+        $request->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'message' => 'required|string',
+            'subject' => 'required|string',
+        ]);
 
-        // Envía el correo electrónico con los datos del formulario
-        Mail::to('macrovidanatural1@hotmail.com')->send(new FormularioEnviado($datos));
+        // Obtener los datos del formulario
+        $nombre = $request->first_name;
+        $apellido = $request->last_name;
+        $mensaje = $request->message;
+        $motivo = $request->subject;
+        $send_mail = 'henryrm8@gmail.com';
 
-        // Verifica si el correo se envió correctamente
-        if (Mail::failures()) {
-            return back()->with('error', 'Error al enviar el correo electrónico.');
-        } else {
-            return back()->with('message', 'Correo electrónico enviado exitosamente.');
-        }
-        //code...
-        } catch (\Throwable $th) {
-            throw $th;
-        }
+        Mail::to($send_mail)->send(new EnviarCorreo($nombre, $apellido, $mensaje, $motivo));
+        $senderMessage = "Los productos que han solicitado son los siguientes:";
+        // Puedes agregar un mensaje de éxito o redireccionar a una página de confirmación
+        return redirect()->back()->with('message', '¡El correo electrónico ha sido enviado con éxito!');
     }
 }
