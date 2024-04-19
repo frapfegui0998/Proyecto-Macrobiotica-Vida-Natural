@@ -26,16 +26,10 @@
         color: #000;
     }
 </style>
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
-    <i class="fas fa-arrow-right"></i>
-</button>
 
-<div class="offcanvas offcanvas-start" id="demo" @click.away="open = false"
+<div
     class="flex flex-col flex-shrink-0 w-full text-black bg-gray-800 md:w-64 dark-mode:text-gray-200 dark-mode:bg-gray-800"
     x-data="{ open: false }">
-    <div class="offcanvas-header">
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-    </div>
             <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4" style="background-color: #4267B2;">
                 <a href="{{ route('admin.index') }}" style="text-decoration: none;"
                     class="text-lg font-semibold tracking-widest text-white uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
@@ -115,4 +109,3 @@
 
             </nav>
             </div>
-
