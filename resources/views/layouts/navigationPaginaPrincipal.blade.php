@@ -36,7 +36,7 @@
     }
 
     .navbar-nav li a:hover {
-        background-color: #24e7a4;
+        background-color: #24E7D5;
         /* Verde */
         border-radius: 50px;
         /* Bordes curveados */

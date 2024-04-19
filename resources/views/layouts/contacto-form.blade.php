@@ -89,23 +89,40 @@
             @csrf
             <div class="form-group">
                 <label for="first_name">Nombre</label>
-                <input type="text" id="first_name" name="first_name" placeholder="Tu nombre..">
+                <input type="text" id="first_name" name="first_name" placeholder="Tu nombre.."
+                    value="{{ old('first_name') }}">
             </div>
+            @error('first_name')
+                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+            @enderror
             <div class="form-group">
                 <label for="last_name">Apellidos</label>
-                <input type="text" id="last_name" name="last_name" placeholder="Tus apellidos..">
+                <input type="text" id="last_name" name="last_name" placeholder="Tus apellidos.."
+                    value="{{ old('last_name') }}">
             </div>
+            @error('last_name')
+                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+            @enderror
             <div class="form-group">
                 <label for="subject">Motivo</label>
-                <input type="text" id="subject" name="subject" placeholder="¿Por qué nos contactas?">
+                <input type="text" id="subject" name="subject" placeholder="¿Por qué nos contactas?"
+                    value="{{ old('subject') }}">
             </div>
+            @error('subject')
+                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+            @enderror
             <div class="form-group">
-                <label for="message">Solicita tus productos</label>
-                <textarea id="message" name="message" placeholder="Escribe tu lista de productos" style="height:200px"></textarea>
+                <label for="message">Puede formular solicitudes de productos o realizar consultas con respecto a los
+                    mismos</label>
+                <textarea id="message" name="message" placeholder="Escribe tu lista de productos" style="height:200px"
+                    value="{{ old('message') }}"></textarea>
             </div>
+            @error('message')
+                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+            @enderror
             <button type="submit"
                 class="group relative h-12 w-32 overflow-hidden rounded-lg bg-[#4267B2] text-lg font-bold text-black">
-                Enviar
+                Enviar correo
                 <div
                     class="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
                 </div>
