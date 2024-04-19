@@ -6,30 +6,44 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EnviarCorreo;
+use App\Models\LogError;
+use Exception;
 
 class CorreoController extends Controller
 {
 
     public function enviarCorreo(Request $request)
     {
-        // Validar los datos del formulario si es necesario
-        $request->validate([
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
-            'message' => 'required|string',
-            'subject' => 'required|string',
-        ]);
+        try {
 
-        // Obtener los datos del formulario
-        $nombre = $request->first_name;
-        $apellido = $request->last_name;
-        $mensaje = $request->message;
-        $motivo = $request->subject;
-        $send_mail = 'henryrm8@gmail.com';
+            $request->validate([
+                'first_name' => 'required|string',
+                'last_name' => 'required|string',
+                'message' => 'required|string',
+                'subject' => 'required|string',
+            ]);
 
-        Mail::to($send_mail)->send(new EnviarCorreo($nombre, $apellido, $mensaje, $motivo));
-        $senderMessage = "Los productos que han solicitado son los siguientes:";
-        // Puedes agregar un mensaje de éxito o redireccionar a una página de confirmación
-        return redirect()->back()->with('message', '¡El correo electrónico ha sido enviado con éxito!');
+            $nombre = $request->first_name;
+            $apellido = $request->last_name;
+            $mensaje = $request->message;
+            $motivo = $request->subject;
+            $send_mail = 'henryrm8@gmail.com';
+
+            Mail::to($send_mail)->send(new EnviarCorreo($nombre, $apellido, $mensaje, $motivo));
+
+            return redirect()->back()->with('message', '¡El correo electrónico ha sido enviado con éxito!');
+        } catch (Exception $e) {
+            $errorMessage = $e->getMessage();
+
+            LogError::create([
+                'message' => 'Error al enviar correo de solicitud',
+                'user_email' => auth()->user()->email,
+                'user_name' => auth()->user()->name,
+                'exception' => $errorMessage,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            return redirect()->back()->with('deleted', 'Ha ocurrido un error al enviar el correo electrónico. Por favor, inténtelo de nuevo más tarde.');
+        }
     }
 }
