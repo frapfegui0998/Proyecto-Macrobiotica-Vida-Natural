@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\EnviarCorreo;
 use App\Models\LogError;
 use Exception;
+use App\Http\Requests\EmailRequest;
 
 class CorreoController extends Controller
 {
-    public function enviarCorreo(Request $request)
+    public function enviarCorreo(EmailRequest $request)
     {
         try {
             if (!auth()->check()) {
