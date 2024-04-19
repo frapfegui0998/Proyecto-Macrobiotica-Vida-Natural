@@ -112,22 +112,6 @@
             </button>
         </form>
     </div>
-
-    {{-- <script>
-        function validateAndSubmit() {
-            // Aquí verificarías si el usuario está logueado
-            var isLoggedIn = false; // Simulación, debes implementar la lógica de autenticación
-
-            if (isLoggedIn) {
-                // Si el usuario está logueado, envía el formulario
-                document.getElementById("contact-form").submit();
-            } else {
-                // Si el usuario no está logueado, redirige al login
-                alert("Debes estar logueado para solicitar productos. Redirigiendo al inicio de sesión...");
-                window.location.href = "{{ route('login') }}"; // Reemplaza 'login' con la ruta real de tu página de login
-            }
-        }
-    </script> --}}
 </body>
 
 </html>

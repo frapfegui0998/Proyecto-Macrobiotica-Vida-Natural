@@ -11,10 +11,12 @@ use Exception;
 
 class CorreoController extends Controller
 {
-
     public function enviarCorreo(Request $request)
     {
         try {
+            if (!auth()->check()) {
+                return redirect()->route('login')->with('deleted', 'Debe iniciar sesión para enviar el correo electrónico.');
+            }
 
             $request->validate([
                 'first_name' => 'required|string',
@@ -43,7 +45,7 @@ class CorreoController extends Controller
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
-            return redirect()->back()->with('deleted', 'Ha ocurrido un error al enviar el correo electrónico. Por favor, inténtelo de nuevo más tarde.');
         }
+        return redirect()->back()->with('deleted', 'Ha ocurrido un error al enviar el correo electrónico. Por favor, inténtelo de nuevo más tarde.');
     }
 }
