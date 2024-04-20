@@ -122,7 +122,7 @@
                     @endrole
                 </ul>
                 <!-- Botón de logout -->
-                <ul class="nav navbar-nav ms-auto">
+                <ul class="nav navbar-nav navbar-right">
                     @auth
                         <li>
                             <form method="POST" action="{{ route('logout') }}">

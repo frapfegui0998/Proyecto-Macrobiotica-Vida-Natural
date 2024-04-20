@@ -67,7 +67,7 @@
                     href="{{ route('admin.products.index') }}">
                     <i class="fas fa-box-open" style="margin-right: 8px;"></i> Productos
                 </a>
-                <a class="menu-item {{ request()->is('admin/products*') ? 'bg-blue-200' : 'bg-transparent' }}"
+                <a class="menu-item {{ request()->is('admin/logError*') ? 'bg-blue-200' : 'bg-transparent' }}"
                     href="{{ route('admin.logError.index') }}">
                     <i class="fas fa-exclamation-triangle" style="margin-right: 8px;"></i> Excepciones
                 </a>

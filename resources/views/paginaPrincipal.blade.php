@@ -27,8 +27,9 @@
 
 </head>
 
+
 <header class="font-sans antialiased">
-    @include('layouts.navigationPaginaPrincipal')
+    @include('layouts.navigationPaginaPrincipal2')
 </header>
 
 <body>

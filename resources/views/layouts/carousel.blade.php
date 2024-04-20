@@ -10,64 +10,24 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <style>
-        /* Estilo para el título */
-        .navbar-brand {
-            color: #FFFFFF;
-            /* Color amarillo */
-            font-size: 20px;
-            /* Tamaño de fuente ajustado */
-            font-weight: bold;
-            /* Negrita */
-        }
-
-        /* Estilo para los elementos del menú */
-        .navbar-nav li a {
-            color: white;
-            transition: background-color 0.3s, border-radius 0.3s;
-        }
-
-        /* Hover para los elementos del menú */
-        .navbar-nav li a:hover {
-            background-color: #24E7D5;
-            /* Verde */
-            border-radius: 50px;
-            /* Bordes curveados */
-        }
-
-        /* Estilo para el botón de logout */
-        .btn-logout {
-            background-color: #1790A9;
-            /* Azul */
-            border-color: #1790A9;
-            /* Azul */
-            color: #ffffff !important;
-            /* Blanco */
-            padding: 6px 12px;
-            /* Reducir el padding */
-            font-size: 14px;
-            /* Reducir el tamaño de la fuente */
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-            border-radius: 50px;
-        }
-
-        .btn-logout:hover {
-            background-color: #24E7D5;
-            /* Verde oscuro */
-            color: #ffffff;
-            /* Blanco */
-        }
-
         /* Estilo para el elemento de login al lado derecho */
         .navbar-right {
             padding-right: 20px;
             /* Agregar padding al lado derecho */
         }
 
-        /* Estilo para el botón de Facebook */
-        .btn-primary {
-            background-color: #4267B2;
-            /* Azul de Facebook */
+        .navbar-nav>li {
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 15.4px;
+            transition: background-color 0.3s, border-radius 0.3s;
+        }
+
+        .navbar-nav li a:hover {
+            background-color: #24E7D5;
+            /* Verde */
+            border-radius: 50px;
+            /* Bordes curveados */
         }
 
         /* Estilos para las imágenes dentro del carousel */
