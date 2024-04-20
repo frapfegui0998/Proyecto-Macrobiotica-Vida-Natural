@@ -120,6 +120,7 @@
             @error('message')
                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
             @enderror
+            <br>
             <button type="submit"
                 class="group relative h-12 w-32 overflow-hidden rounded-lg bg-[#4267B2] text-lg font-bold text-black">
                 Enviar correo

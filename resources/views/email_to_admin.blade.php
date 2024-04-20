@@ -4,7 +4,7 @@
 
     <p>Motivo de la solicitud: <strong>{{ $motivo }}</strong></p>
 
-    <p>A continuación, encontrarás los detalles de los productos que ha solicitado:</p>
+    <p>A continuación, encontrarás los detalles de la consulta o de los productos que ha solicitado:</p>
 
     <p>{{ $mensaje }}</p>
 
