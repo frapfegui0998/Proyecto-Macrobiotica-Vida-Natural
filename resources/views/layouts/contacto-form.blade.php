@@ -52,38 +52,30 @@
 </head>
 
 <body>
-    <!-- WARNING -->
-    @if (session('message'))
-        <div class="max-w-full mx-auto">
-            <div class="flex bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700" role="alert">
-                <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                        clip-rule="evenodd"></path>
-                </svg>
-                <div>
-                    <span class="font-medium">¡Alerta!</span> {{ session('message') }}
-                </div>
-            </div>
-        </div>
-    @endif
 
-    @if (session('deleted'))
-        <div class="max-w-full mx-auto">
-            <div class="flex bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700" role="alert">
-                <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                        clip-rule="evenodd"></path>
-                </svg>
-                <div>
-                    <span class="font-medium">¡Alerta!</span> {{ session('deleted') }}
-                </div>
-            </div>
-        </div>
-    @endif
+
     <div class="container-form">
+        <!-- WARNING -->
+        <div style="margin: auto; max-width: 50%">
+            @if (session('message'))
+                <div
+                    style="display:flex; background: rgb(68, 96, 252); margin: 1px; padding: 1px; border-radius: 8px; justify-content: center;">
+                    <p class="" style="color: #fff; margin-right: 5px;">¡Alerta! </p>
+                    <p style="color: #fff; margin-left: 5px; margin-right: 5px;">{{ session('message') }}</p>
+                </div>
+            @endif
+
+
+            @if (session('deleted'))
+                <div
+                    style="display:flex; background: rgb(68, 96, 252); margin: 1px; padding: 1px; border-radius: 8px; justify-content: center;">
+                    <p class="" style="color: #fff; margin-right: 5px;">¡Alerta! </p>
+                    <p style="color: #fff; margin-left: 5px; margin-right: 5px;">{{ session('deleted') }}</p>
+                </div>
+            @endif
+
+
+        </div>
         <h2>Contáctanos</h2>
         <form id="contact-form" method="POST" action="{{ route('enviar.correo') }}">
             @csrf

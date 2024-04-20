@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión - Macrobiótica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
     <style>
         .container {
             display: flex;
@@ -135,6 +137,10 @@
         .back-button:hover {
             background-color: #666666;
         }
+
+        .svg-max-width {
+            max-width: 20px;
+        }
     </style>
 </head>
 
@@ -142,86 +148,82 @@
     <div class="container">
         <!-- WARNING -->
         @if (session('message'))
+            <div style="display:flex; background: rgb(44, 44, 44); margin: 1px; padding: 1px; border-radius: 8px;">
+                <p class="" style="color: #fff;">¡Alerta! </p>
+                <p style="color: #fff;">{{ session('message') }}</p>
+            </div>
+        @endif
+
+        {{-- @if (session('deleted'))
             <div class="max-w-full mx-auto">
-                <div class="flex bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700" role="alert">
-                    <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                            clip-rule="evenodd"></path>
-                    </svg>
+                <div class="flex bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700 alert" role="alert">
+                    <i class="fa-solid fa-exclamation" style="color: #fff;"></i>
                     <div>
-                        <span class="font-medium">¡Alerta!</span> {{ session('message') }}
+                        <span class="font-medium" style="color: #fff;">¡Alerta!</span>
+                        <p style="color: #fff;">{{ session('deleted') }}</p>
                     </div>
                 </div>
             </div>
-        @endif
+        @endif --}}
 
         @if (session('deleted'))
-            <div class="max-w-full mx-auto">
-                <div class="flex bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700" role="alert">
-                    <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <div>
-                        <span class="font-medium">¡Alerta!</span> {{ session('deleted') }}
-                    </div>
-                </div>
+            <div style="display:flex; background: rgb(44, 44, 44); margin: 1px; padding: 1px; border-radius: 8px;">
+                <p class="" style="color: #fff;">¡Alerta! </p>
+                <p style="color: #fff;">{{ session('deleted') }}</p>
             </div>
         @endif
-    </div>
-    <!-- Session Status -->
-    <x-auth-session-status :status="session('status')" />
-    <div class="login-container">
-        <div class="logo">
-            <img src="{{ asset('images/logo.jpg') }}" alt="Mi Imagen">
 
+
+
+        <!-- Session Status -->
+        <x-auth-session-status :status="session('status')" />
+        <div class="login-container">
+            <div class="logo">
+                <img src="{{ asset('images/logo.jpg') }}" alt="Mi Imagen">
+
+            </div>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+
+                <!-- Email Address -->
+                <div>
+                    <x-input-label for="email" :value="__('Correo Eletrónico')" />
+                    <x-text-input id="email" type="email" name="email" :value="old('email')" autofocus
+                        autocomplete="username" placeholder="ejemplo@ejemplo.com" />
+                    <x-input-error :messages="$errors->get('email')" />
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <x-input-label for="password" :value="__('Contraseña')" />
+                    <x-text-input id="password" type="password" name="password" autocomplete="current-password"
+                        placeholder="********" />
+                    <x-input-error :messages="$errors->get('password')" />
+                </div>
+
+                <!-- Forgot your Password? / Login-->
+                <div class="button-container">
+                    @if (Route::has('password.request'))
+                        <a class="forgot-password-link"
+                            href="{{ route('password.request') }}">{{ __('¿Olvidaste la contraseña?') }}</a>
+                    @endif
+                    <x-primary-button>
+                        {{ __('Iniciar sesión') }}
+                    </x-primary-button>
+                </div>
+
+                <!-- Register -->
+                <div class="green-border-button-container">
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}"
+                            class="green-border-button ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                            Registrarse
+                        </a>
+                    @endif
+                </div>
+                <a href="{{ url('/') }}" class="back-button">Regresar a página principal</a>
+            </form>
         </div>
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-input-label for="email" :value="__('Correo Eletrónico')" />
-                <x-text-input id="email" type="email" name="email" :value="old('email')" autofocus
-                    autocomplete="username" placeholder="ejemplo@ejemplo.com" />
-                <x-input-error :messages="$errors->get('email')" />
-            </div>
-
-            <!-- Password -->
-            <div>
-                <x-input-label for="password" :value="__('Contraseña')" />
-                <x-text-input id="password" type="password" name="password" autocomplete="current-password"
-                    placeholder="********" />
-                <x-input-error :messages="$errors->get('password')" />
-            </div>
-
-            <!-- Forgot your Password? / Login-->
-            <div class="button-container">
-                @if (Route::has('password.request'))
-                    <a class="forgot-password-link"
-                        href="{{ route('password.request') }}">{{ __('¿Olvidaste la contraseña?') }}</a>
-                @endif
-                <x-primary-button>
-                    {{ __('Iniciar sesión') }}
-                </x-primary-button>
-            </div>
-
-            <!-- Register -->
-            <div class="green-border-button-container">
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}"
-                        class="green-border-button ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                        Registrarse
-                    </a>
-                @endif
-            </div>
-            <a href="{{ url('/') }}" class="back-button">Regresar a página principal</a>
-        </form>
-
 </body>
 
 </html>
