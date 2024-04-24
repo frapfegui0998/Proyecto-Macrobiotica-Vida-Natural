@@ -97,6 +97,19 @@
                 </div>
             </div>
         @endforeach
+        <!-- JavaScript -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const botonesPedido = document.querySelectorAll('.agregar-pedido');
+
+                botonesPedido.forEach(boton => {
+                    boton.addEventListener('click', () => {
+                        const nombreProducto = boton.getAttribute('data-producto');
+                        document.getElementById('producto_pedido').value = nombreProducto;
+                    });
+                });
+            });
+        </script>
     </div>
 </div>
 
