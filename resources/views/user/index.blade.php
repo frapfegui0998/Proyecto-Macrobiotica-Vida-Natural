@@ -84,7 +84,6 @@
     <div class="productos mx-auto">
         @foreach ($products as $product)
             <div class="card">
-                {{-- <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->name }}"> --}}
                 <img width="150px" height="150px" src="{{ asset($product->image_url) }}" class="card-img-top"
                     alt="{{ $product->name }}">
                 <div class="card-body">
@@ -93,23 +92,17 @@
                     <p class="card-text" style="color: #4f4f4f; font-weight: bold;">Precio: {{ $product->price }}₡</p>
                     <p class="card-text" style="color: #4f4f4f; font-weight: bold;">Disponibilidad:
                         {{ $product->stock_quantity }} Unds</p>
-                    <a href="{{ url('/contacto') }}" class="btn btn-primary">Consulte "Contáctanos"</a>
+                    <!-- Agrega un formulario para enviar el ID del producto -->
+                    <form action="{{ route('correoController.enviarProdcuto') }}" method="post">
+                        @csrf
+                        <!-- Input hidden para enviar el ID del producto -->
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <!-- Cambia el texto del botón a "Pedir producto" -->
+                        <button type="submit" class="btn btn-primary">¡Añadir a mi lista ahora!</button>
+                    </form>
                 </div>
             </div>
         @endforeach
-        <!-- JavaScript -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const botonesPedido = document.querySelectorAll('.agregar-pedido');
-
-                botonesPedido.forEach(boton => {
-                    boton.addEventListener('click', () => {
-                        const nombreProducto = boton.getAttribute('data-producto');
-                        document.getElementById('producto_pedido').value = nombreProducto;
-                    });
-                });
-            });
-        </script>
     </div>
 </div>
 
