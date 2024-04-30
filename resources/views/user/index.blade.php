@@ -93,7 +93,7 @@
                     <p class="card-text" style="color: #4f4f4f; font-weight: bold;">Disponibilidad:
                         {{ $product->stock_quantity }} Unds</p>
                     <!-- Agrega un formulario para enviar el ID del producto -->
-                    <form action="{{ route('correoController.enviarProdcuto') }}" method="post">
+                    <form action="{{ route('enviar.producto') }}" method="post">
                         @csrf
                         <!-- Input hidden para enviar el ID del producto -->
                         <input type="hidden" name="product_id" value="{{ $product->id }}">

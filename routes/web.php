@@ -79,6 +79,8 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
 
 //Correo petición de productos
 Route::post('/enviar-correo', [CorreoController::class, 'enviarCorreo'])->name('enviar.correo');
+//Envío de productos a vista de correo
+Route::post('/enviar-producto', [CorreoController::class, 'enviarProducto'])->name('enviar.producto');
 
 //Rol Admin
 Route::delete('roles/{role}', [RoleController::class, 'destroy'])->middleware('admin');
