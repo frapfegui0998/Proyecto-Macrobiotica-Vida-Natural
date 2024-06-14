@@ -106,7 +106,7 @@
             <div class="form-group">
                 <label for="message">Puede formular solicitudes de productos o realizar consultas con respecto a los
                     mismos</label>
-                <textarea id="message" name="message" placeholder="Escribe tu lista de productos" style="height:200px"
+                <textarea id="message" name="message" placeholder="Escribe tu lista de productos..." style="height:200px"
                     value="{{ old('message') }}"></textarea>
             </div>
             @error('message')
