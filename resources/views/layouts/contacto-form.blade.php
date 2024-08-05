@@ -55,7 +55,6 @@
 
 
     <div class="container-form">
-        <!-- WARNING -->
         <div style="margin: auto; max-width: 50%">
             @if (session('message'))
                 <div
