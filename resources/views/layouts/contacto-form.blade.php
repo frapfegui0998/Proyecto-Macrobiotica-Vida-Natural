@@ -114,7 +114,7 @@
             <br>
             <button type="submit"
                 class="group relative h-12 w-32 overflow-hidden rounded-lg bg-[#4267B2] text-lg font-bold text-black">
-                Enviar correo
+                Enviar correo electrónico
                 <div
                     class="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-75 group-hover:scale-100 group-hover:bg-white/30">
                 </div>
