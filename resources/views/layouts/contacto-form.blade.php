@@ -80,7 +80,7 @@
             @csrf
             <div class="form-group">
                 <label for="first_name">Nombre</label>
-                <input type="text" id="first_name" name="first_name" placeholder="Tu nombre.."
+                <input type="text" id="first_name" name="first_name" placeholder="Nombre.."
                     value="{{ old('first_name') }}">
             </div>
             @error('first_name')
@@ -88,7 +88,7 @@
             @enderror
             <div class="form-group">
                 <label for="last_name">Apellidos</label>
-                <input type="text" id="last_name" name="last_name" placeholder="Tus apellidos.."
+                <input type="text" id="last_name" name="last_name" placeholder="Apellidos.."
                     value="{{ old('last_name') }}">
             </div>
             @error('last_name')
