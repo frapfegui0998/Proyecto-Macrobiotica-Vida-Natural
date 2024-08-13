@@ -103,7 +103,7 @@
                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
             @enderror
             <div class="form-group">
-                <label for="message">Puede formular solicitudes de productos o realizar consultas con respecto a los
+                <label for="message">Puedes formular solicitudes de productos o realizar consultas con respecto a los
                     mismos...</label>
                 <textarea id="message" name="message" placeholder="Escribe tu lista de productos o tus consultas hacia los mismos.."
                     style="height:200px" value="{{ old('message') }}"></textarea>
