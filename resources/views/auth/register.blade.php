@@ -115,7 +115,7 @@
             <div>
                 <x-input-label for="name" :value="__('Nombre')" />
                 <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"
-                    autofocus autocomplete="name" />
+                    autofocus autocomplete="name" placeholder="Ingrese su nombre" />
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
 
@@ -123,7 +123,7 @@
             <div class="mt-4">
                 <x-input-label for="email" :value="__('Correo electrónico')" />
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
-                    autocomplete="username" />
+                    autocomplete="username" placeholder="ejemplo@ejemplo.com" />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
